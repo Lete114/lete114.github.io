@@ -1,1 +1,20 @@
-<meta http-equiv="refresh" content="0;url=http://blog.imlete.cn">
+<!-- <meta http-equiv="refresh" content="0;url=http://blog.imlete.cn"> -->
+<script>
+  function refresh() {
+    setTimeout(() => {
+      location.href = "http://blog.imlete.cn";
+    }, 1000);
+  }
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker
+      .getRegistrations()
+      .then((r) => {
+        for (let i of r) i.unregister();
+        console.log("注销成功");
+        refresh();
+      })
+      .catch(() => console.log("注销失败"));
+  } else {
+    refresh();
+  }
+</script>
