@@ -1,0 +1,165 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.imlete.cn</id>
+    <title>Lete乐特 &#39;s Blog • Posts by &#34;jsdelivr&#34; tag</title>
+    <link href="https://blog.imlete.cn" />
+    <updated>2020-11-22T19:17:56.000Z</updated>
+    <category term="CSS" />
+    <category term="记录" />
+    <category term="JavaScript" />
+    <category term="Git" />
+    <category term="教程" />
+    <category term="HTML" />
+    <category term="CDN" />
+    <category term="Github" />
+    <category term="Jsdeliver" />
+    <category term="SEO" />
+    <category term="Hexo" />
+    <category term="Yilia" />
+    <category term="Valine" />
+    <category term="Live2d" />
+    <category term="Config" />
+    <category term="LeanCloud" />
+    <category term="IDEA" />
+    <category term="Maven" />
+    <category term="Java" />
+    <category term="SpringBoot" />
+    <category term="Thymeleaf" />
+    <category term="java" />
+    <category term="源码" />
+    <category term="软件" />
+    <category term="MyBatis" />
+    <category term="SSM" />
+    <category term="Gzip" />
+    <category term="JQuery" />
+    <category term="Node" />
+    <category term="Cache" />
+    <category term="Vue" />
+    <category term="TypeScript" />
+    <category term="Vercel" />
+    <category term="HTTP" />
+    <category term="Typecho" />
+    <category term="Blog" />
+    <category term="Webpack" />
+    <category term="Windows" />
+    <category term="Linux" />
+    <category term="PhotoShop" />
+    <category term="抠图" />
+    <category term="VSCode" />
+    <category term="jsdelivr" />
+    <category term="C#" />
+    <category term="Google Chrome" />
+    <category term="谷歌插件" />
+    <category term="Google-Chrome" />
+    <entry>
+        <id>https://blog.imlete.cn/article/jsdelivr-video.html</id>
+        <title>利用jsdelivr搭建视频床</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/jsdelivr-video.html"/>
+        <content type="html">&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;相信很多人都用过图床，大部分都是利用jsdelivr当图床，从而得到一个免费的图床，并且自带CDN加速&lt;br&gt;但是有很多人想存储视频这么办呢？有没有视频床呢？把视频上传仓库后，jsdelivr是能抓取的，而且也能用&lt;br&gt;不过只能存储20MB以内的资源，并且jsdelivr不能解析视频类资源，打开视频格式的链接会自动下载，无法播放&lt;br&gt;那怎么办呢？只要你想就没有你做不到的，那么就在此记录一下过程，就不多说废话了，看正文 &amp;lt;(￣︶￣)↗[GO!]&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;首先你得了解jsdelivr，他只加载20MB以内的资源，如果你的视频正好控制这一范围的话，你就可以使用默认的内容了&lt;br&gt;但是由于jsdelivr对视频资源的解析不友好，所以我们就得对视频资源做一定的处理&lt;/p&gt;
+&lt;p&gt;用过QQ浏览器的都知道下载网页上的视频下来都是M3U8的视频格式，即使你不下载，只是看视频都会产生M3U8文件和TS文件&lt;/p&gt;
+&lt;h2 id=&#34;什么是M3U8、TS文件？&#34;&gt;&lt;a href=&#34;#什么是M3U8、TS文件？&#34; class=&#34;headerlink&#34; title=&#34;什么是M3U8、TS文件？&#34;&gt;&lt;/a&gt;什么是M3U8、TS文件？&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;M3U8&lt;/strong&gt;&lt;br&gt;M3U8是指UTF-8编码格式的M3U文件(M3U使用Latin-1字符集编码)&lt;br&gt;M3U文件是一个记录索引的纯文本文件，打开它时播放软件并不会播放它&lt;br&gt;而是根据它的索引找到对应的音视频文件的网络地址进行在线播放&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TS&lt;/strong&gt;&lt;br&gt;ts是日本高清摄像机拍摄下进行的封装格式，全称为MPEG2-TS。ts即”Transport Stream”的缩写。&lt;br&gt;将一个视频文件(MP4)切片分为很多个TS文件，一个TS文件的视频时常可以自定义，比如切片为5秒&lt;br&gt;那么其他ts文件也是5秒，但是这个不是完全准确，也就是说会有误差，会产生4-7秒左右的ts视频文件&lt;/p&gt;
+&lt;p&gt;那他是这么工作的呢？(以下图片是本地运行过程)&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/Jsdelivr-Video/m3u8-ts.png&#34; alt=&#34;m3u8-ts&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;ffmpeg-工具&#34;&gt;&lt;a href=&#34;#ffmpeg-工具&#34; class=&#34;headerlink&#34; title=&#34;ffmpeg 工具&#34;&gt;&lt;/a&gt;ffmpeg 工具&lt;/h2&gt;&lt;p&gt;什么是ffmpeg在这里我就不再赘述了，感兴趣的可以自行搜索&lt;/p&gt;
+&lt;p&gt;了解了M3U8和TS，我该怎么把视频切片呢?&lt;br&gt;使用ffmpeg 工具进行切片&lt;/p&gt;
+&lt;p&gt;官网：&lt;a href=&#34;https://ffmpeg.org/download.html&#34;&gt;https://ffmpeg.org/download.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下载解压后打开&lt;code&gt;bin&lt;/code&gt;目录，在里面找到&lt;code&gt;ffmpeg.exe&lt;/code&gt;复制到自己新建的一个文件夹里，再把想要切片的视频Copy进来&lt;/p&gt;
+&lt;h2 id=&#34;视频切片&#34;&gt;&lt;a href=&#34;#视频切片&#34; class=&#34;headerlink&#34; title=&#34;视频切片&#34;&gt;&lt;/a&gt;视频切片&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;当前目录下有&lt;br&gt;Lete.mp4&lt;br&gt;ffmpeg.exe&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;打开cmd，cd进入到刚刚新建的文件夹，关于怎么操作我就不多bb了&lt;br&gt;既然都用上Github，用jsdelivr加速了，你电脑里一定装了Git工具&lt;br&gt;在当前目录打开&lt;code&gt;Git Bash&lt;/code&gt; 命令行&lt;/p&gt;
+&lt;p&gt;(cmd不需要&lt;code&gt;./&lt;/code&gt;)&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;将mp4转成ts格式，1对1，转换后视频质量与大小无变化。(执行下方代码得到&lt;code&gt;Lete.ts&lt;/code&gt;)&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;./ffmpeg.exe -y -i Lete.mp4 -vcodec copy -acodec copy -vbsf h264_mp4toannexb Lete.ts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/li&gt;
+&lt;li&gt;按时间隔分片，1对N，下面的5即&lt;code&gt;每个分片5秒&lt;/code&gt;，自行修改&lt;br&gt;&lt;code&gt;-segment_list Lete.m3u8&lt;/code&gt;为切片后得到的m3u8文件&lt;br&gt;&lt;code&gt;-segment_time 5 Lete%03d.ts&lt;/code&gt;为切片后得到的ts文件名&lt;code&gt;5&lt;/code&gt;代表每个ts文件5秒播放时常(有误差，不完全5秒)&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;./ffmpeg -i Lete.ts -c copy -map 0 -f segment -segment_list Lete.m3u8 -segment_time 5 Lete%03d.ts&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这是你的文件了会有如下图文件&lt;br&gt;&lt;img src=&#34;/img/Jsdelivr-Video/1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;将这几个文件push到仓库即可&lt;br&gt;&lt;img src=&#34;/img/Jsdelivr-Video/2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;现在访问是m3u8是不可以播放视频的(会自动下载对吧)&lt;br&gt;&lt;span style=&#39;color:red&#39;&gt;注：由于我的GitHub仓库被官方人员禁止了，导致失效&lt;/span&gt;&lt;br&gt;&lt;a href=&#34;https://cdn.jsdelivr.net/gh/lete114/CDN2/video/4.m3u8&#34;&gt;https://cdn.jsdelivr.net/gh/lete114/CDN2/video/4.m3u8&lt;/a&gt;&lt;br&gt;访问文件也是不行的(乱码对吧)&lt;br&gt;&lt;a href=&#34;https://cdn.jsdelivr.net/gh/lete114/CDN2/video/4000.ts&#34;&gt;https://cdn.jsdelivr.net/gh/lete114/CDN2/video/4000.ts&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;HLS技术&#34;&gt;&lt;a href=&#34;#HLS技术&#34; class=&#34;headerlink&#34; title=&#34;HLS技术&#34;&gt;&lt;/a&gt;HLS技术&lt;/h2&gt;&lt;p&gt;什么是HLS技术？&lt;/p&gt;
+&lt;p&gt;HLS (HTTP Live Streaming)是Apple的动态码率自适应技术。主要用于PC和Apple终端的音视频服务。&lt;br&gt;包括一个m3u(8)的索引文件，TS媒体分片文件和key加密串文件。(摘抄自百度百科)&lt;/p&gt;
+&lt;p&gt;CDN：&lt;a href=&#34;https://cdn.jsdelivr.net/npm/hls.js&#34;&gt;https://cdn.jsdelivr.net/npm/hls.js&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;视频播放&#34;&gt;&lt;a href=&#34;#视频播放&#34; class=&#34;headerlink&#34; title=&#34;视频播放&#34;&gt;&lt;/a&gt;视频播放&lt;/h2&gt;&lt;p&gt;使用video标签播放视频&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;th&gt;说明&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;autoplay&lt;/td&gt;
+&lt;td&gt;autoplay&lt;/td&gt;
+&lt;td&gt;如果出现该属性，则视频在就绪后马上播放。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;controls&lt;/td&gt;
+&lt;td&gt;controls&lt;/td&gt;
+&lt;td&gt;如果出现该属性，则向用户显示控件，比如播放按钮。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;height&lt;/td&gt;
+&lt;td&gt;pixels&lt;/td&gt;
+&lt;td&gt;设置视频播放器的高度。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loop&lt;/td&gt;
+&lt;td&gt;loop&lt;/td&gt;
+&lt;td&gt;如果出现该属性，则当媒介文件完成播放后再次开始播放。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;muted&lt;/td&gt;
+&lt;td&gt;muted&lt;/td&gt;
+&lt;td&gt;规定视频的音频输出应该被静音。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;poster&lt;/td&gt;
+&lt;td&gt;URL&lt;/td&gt;
+&lt;td&gt;规定视频下载时显示的图像，或者在用户点击播放按钮前显示的图像。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;preload&lt;/td&gt;
+&lt;td&gt;preload&lt;/td&gt;
+&lt;td&gt;如果出现该属性，则视频在页面加载时进行加载，并预备播放。&lt;br&gt; 如果使用 “autoplay”，则忽略该属性。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;src&lt;/td&gt;
+&lt;td&gt;url&lt;/td&gt;
+&lt;td&gt;要播放的视频的 URL。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;width&lt;/td&gt;
+&lt;td&gt;pixels&lt;/td&gt;
+&lt;td&gt;设置视频播放器的宽度。&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;https://cdn.jsdelivr.net/npm/hls.js&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;video&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;video&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;preload&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;muted&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;loop&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;autoplay&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;style&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;height: 100%;width: 100%;object-fit: cover;&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;video&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;language-javascript&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; video = &lt;span class=&#34;variable language_&#34;&gt;document&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;getElementById&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;video&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; videoSrc = &lt;span class=&#34;string&#34;&gt;&amp;#x27;https://cdn.jsdelivr.net/gh/lete114/CDN2/video/4.m3u8&amp;#x27;&lt;/span&gt;;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;if&lt;/span&gt; (&lt;span class=&#34;title class_&#34;&gt;Hls&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;isSupported&lt;/span&gt;()) &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;var&lt;/span&gt; hls = &lt;span class=&#34;keyword&#34;&gt;new&lt;/span&gt; &lt;span class=&#34;title class_&#34;&gt;Hls&lt;/span&gt;();&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;    hls.&lt;span class=&#34;title function_&#34;&gt;loadSource&lt;/span&gt;(videoSrc);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;    hls.&lt;span class=&#34;title function_&#34;&gt;attachMedia&lt;/span&gt;(video);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;    hls.&lt;span class=&#34;title function_&#34;&gt;on&lt;/span&gt;(&lt;span class=&#34;title class_&#34;&gt;Hls&lt;/span&gt;.&lt;span class=&#34;property&#34;&gt;Events&lt;/span&gt;.&lt;span class=&#34;property&#34;&gt;MANIFEST_PARSED&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;      video.&lt;span class=&#34;title function_&#34;&gt;play&lt;/span&gt;();&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;    &amp;#125;);&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;  &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-javascript&#34;&gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;script&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;效果&#34;&gt;&lt;a href=&#34;#效果&#34; class=&#34;headerlink&#34; title=&#34;效果&#34;&gt;&lt;/a&gt;效果&lt;/h2&gt;&lt;script src=&#34;https://cdn.jsdelivr.net/npm/hls.js&#34;&gt;&lt;/script&gt;
+&lt;video id=&#34;video&#34; preload muted loop autoplay style=&#34;height: 100%;width: 100%;object-fit: cover;&#34;&gt;
+&lt;/video&gt;
+&lt;script&gt;
+  var video = document.getElementById(&#39;video&#39;);
+  var videoSrc = &#39;https://cdn.jsdelivr.net/gh/lete114/CDN2/video/4.m3u8&#39;;
+  if (Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(videoSrc);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+      video.play();
+    });
+  }
+&lt;/script&gt;
+
+</content>
+        <category term="记录" />
+        <category term="教程" />
+        <category term="jsdelivr" />
+        <updated>2020-11-22T19:17:56.000Z</updated>
+    </entry>
+</feed>

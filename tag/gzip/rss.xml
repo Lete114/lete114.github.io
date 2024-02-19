@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Lete乐特 &#39;s Blog • Posts by &#34;gzip&#34; tag</title>
+        <link>https://blog.imlete.cn</link>
+        <description>我相信我可以，但我一直在路上，所以我有无限的可能！！</description>
+        <language>zh-CN</language>
+        <pubDate>Sat, 26 Dec 2020 12:45:59 +0000</pubDate>
+        <lastBuildDate>Sat, 26 Dec 2020 12:45:59 +0000</lastBuildDate>
+        <category>CSS</category>
+        <category>记录</category>
+        <category>JavaScript</category>
+        <category>Git</category>
+        <category>教程</category>
+        <category>HTML</category>
+        <category>CDN</category>
+        <category>Github</category>
+        <category>Jsdeliver</category>
+        <category>SEO</category>
+        <category>Hexo</category>
+        <category>Yilia</category>
+        <category>Valine</category>
+        <category>Live2d</category>
+        <category>Config</category>
+        <category>LeanCloud</category>
+        <category>IDEA</category>
+        <category>Maven</category>
+        <category>Java</category>
+        <category>SpringBoot</category>
+        <category>Thymeleaf</category>
+        <category>java</category>
+        <category>源码</category>
+        <category>软件</category>
+        <category>MyBatis</category>
+        <category>SSM</category>
+        <category>Gzip</category>
+        <category>JQuery</category>
+        <category>Node</category>
+        <category>Cache</category>
+        <category>Vue</category>
+        <category>TypeScript</category>
+        <category>Vercel</category>
+        <category>HTTP</category>
+        <category>Typecho</category>
+        <category>Blog</category>
+        <category>Webpack</category>
+        <category>Windows</category>
+        <category>Linux</category>
+        <category>PhotoShop</category>
+        <category>抠图</category>
+        <category>VSCode</category>
+        <category>jsdelivr</category>
+        <category>C#</category>
+        <category>Google Chrome</category>
+        <category>谷歌插件</category>
+        <category>Google-Chrome</category>
+        <item>
+            <guid isPermalink="true">https://blog.imlete.cn/article/SpringBoot-Gzip.html</guid>
+            <title>SpringBoot开启Gzip压缩</title>
+            <link>https://blog.imlete.cn/article/SpringBoot-Gzip.html</link>
+            <category>记录</category>
+            <category>Java</category>
+            <category>SpringBoot</category>
+            <category>Gzip</category>
+            <pubDate>Sat, 26 Dec 2020 12:45:59 +0000</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;打开配置文件&lt;code&gt;application.yml&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight yml&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;server:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;port:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;4000&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;# 端口(请忽略)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;attr&#34;&gt;compression:&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;enabled:&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;true&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;# 开启Gzip&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;mime-types:&lt;/span&gt; &lt;span class=&#34;string&#34;&gt;application/json,application/xml,text/html,text/xml,text/plain&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;# 数据类型(还有很多数据类型，根据自己的情况修改)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;attr&#34;&gt;min-response-size:&lt;/span&gt; &lt;span class=&#34;number&#34;&gt;100&lt;/span&gt; &lt;span class=&#34;comment&#34;&gt;# 开启压缩最小数据字节数默认2048个‘字节’&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;其中&lt;code&gt;min-response-size:&lt;/code&gt; 可能存在一些问题，经过测试，无论设置多少大小都会压缩，如下源码中的解释&lt;/p&gt;
+&lt;figure class=&#34;highlight java&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;* Return the minimum &amp;quot;Content-Length&amp;quot; value that is required for compression to be&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;* performed.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;* &lt;span class=&#34;doctag&#34;&gt;@return&lt;/span&gt; the minimum content size in bytes that is required for compression&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; DataSize &lt;span class=&#34;title function_&#34;&gt;getMinResponseSize&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;()&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;built_in&#34;&gt;this&lt;/span&gt;.minResponseSize;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;public&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;void&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;setMinResponseSize&lt;/span&gt;&lt;span class=&#34;params&#34;&gt;(DataSize minSize)&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;built_in&#34;&gt;this&lt;/span&gt;.minResponseSize = minSize;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;开启Gzip前&#34;&gt;&lt;a href=&#34;#开启Gzip前&#34; class=&#34;headerlink&#34; title=&#34;开启Gzip前&#34;&gt;&lt;/a&gt;开启Gzip前&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;/img/SpringBoot-Gzip/NoGzip.png&#34; alt=&#34;NoGzip&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;开启Gzip后&#34;&gt;&lt;a href=&#34;#开启Gzip后&#34; class=&#34;headerlink&#34; title=&#34;开启Gzip后&#34;&gt;&lt;/a&gt;开启Gzip后&lt;/h3&gt;&lt;p&gt;&lt;img src=&#34;/img/SpringBoot-Gzip/YesGzip.png&#34; alt=&#34;YesGzip&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

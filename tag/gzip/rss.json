@@ -1,0 +1,21 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Lete乐特 's Blog • All posts by \"gzip\" tag",
+    "description": "我相信我可以，但我一直在路上，所以我有无限的可能！！",
+    "home_page_url": "https://blog.imlete.cn",
+    "items": [
+        {
+            "id": "https://blog.imlete.cn/article/SpringBoot-Gzip.html",
+            "url": "https://blog.imlete.cn/article/SpringBoot-Gzip.html",
+            "title": "SpringBoot开启Gzip压缩",
+            "date_published": "2020-12-26T12:45:59.000Z",
+            "content_html": "<h2 id=\"正文\"><a href=\"#正文\" class=\"headerlink\" title=\"正文\"></a>正文</h2><p>打开配置文件<code>application.yml</code></p>\n<figure class=\"highlight yml\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br><span class=\"line\">4</span><br><span class=\"line\">5</span><br><span class=\"line\">6</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"attr\">server:</span></span><br><span class=\"line\">  <span class=\"attr\">port:</span> <span class=\"number\">4000</span> <span class=\"comment\"># 端口(请忽略)</span></span><br><span class=\"line\">  <span class=\"attr\">compression:</span></span><br><span class=\"line\">    <span class=\"attr\">enabled:</span> <span class=\"literal\">true</span> <span class=\"comment\"># 开启Gzip</span></span><br><span class=\"line\">    <span class=\"attr\">mime-types:</span> <span class=\"string\">application/json,application/xml,text/html,text/xml,text/plain</span> <span class=\"comment\"># 数据类型(还有很多数据类型，根据自己的情况修改)</span></span><br><span class=\"line\">    <span class=\"attr\">min-response-size:</span> <span class=\"number\">100</span> <span class=\"comment\"># 开启压缩最小数据字节数默认2048个‘字节’</span></span><br></pre></td></tr></table></figure>\n<p>其中<code>min-response-size:</code> 可能存在一些问题，经过测试，无论设置多少大小都会压缩，如下源码中的解释</p>\n<figure class=\"highlight java\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br><span class=\"line\">2</span><br><span class=\"line\">3</span><br><span class=\"line\">4</span><br><span class=\"line\">5</span><br><span class=\"line\">6</span><br><span class=\"line\">7</span><br><span class=\"line\">8</span><br><span class=\"line\">9</span><br><span class=\"line\">10</span><br><span class=\"line\">11</span><br><span class=\"line\">12</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"comment\">/**</span></span><br><span class=\"line\"><span class=\"comment\">* Return the minimum &quot;Content-Length&quot; value that is required for compression to be</span></span><br><span class=\"line\"><span class=\"comment\">* performed.</span></span><br><span class=\"line\"><span class=\"comment\">* <span class=\"doctag\">@return</span> the minimum content size in bytes that is required for compression</span></span><br><span class=\"line\"><span class=\"comment\">*/</span></span><br><span class=\"line\"><span class=\"keyword\">public</span> DataSize <span class=\"title function_\">getMinResponseSize</span><span class=\"params\">()</span> &#123;</span><br><span class=\"line\">    <span class=\"keyword\">return</span> <span class=\"built_in\">this</span>.minResponseSize;</span><br><span class=\"line\">&#125;</span><br><span class=\"line\"></span><br><span class=\"line\"><span class=\"keyword\">public</span> <span class=\"keyword\">void</span> <span class=\"title function_\">setMinResponseSize</span><span class=\"params\">(DataSize minSize)</span> &#123;</span><br><span class=\"line\">    <span class=\"built_in\">this</span>.minResponseSize = minSize;</span><br><span class=\"line\">&#125;</span><br></pre></td></tr></table></figure>\n\n<h3 id=\"开启Gzip前\"><a href=\"#开启Gzip前\" class=\"headerlink\" title=\"开启Gzip前\"></a>开启Gzip前</h3><p><img src=\"/img/SpringBoot-Gzip/NoGzip.png\" alt=\"NoGzip\"></p>\n<h3 id=\"开启Gzip后\"><a href=\"#开启Gzip后\" class=\"headerlink\" title=\"开启Gzip后\"></a>开启Gzip后</h3><p><img src=\"/img/SpringBoot-Gzip/YesGzip.png\" alt=\"YesGzip\"></p>\n",
+            "tags": [
+                "记录",
+                "Java",
+                "SpringBoot",
+                "Gzip"
+            ]
+        }
+    ]
+}

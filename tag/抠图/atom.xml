@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.imlete.cn</id>
+    <title>Lete乐特 &#39;s Blog • Posts by &#34;抠图&#34; tag</title>
+    <link href="https://blog.imlete.cn" />
+    <updated>2021-01-30T21:53:11.000Z</updated>
+    <category term="CSS" />
+    <category term="记录" />
+    <category term="JavaScript" />
+    <category term="Git" />
+    <category term="教程" />
+    <category term="HTML" />
+    <category term="CDN" />
+    <category term="Github" />
+    <category term="Jsdeliver" />
+    <category term="SEO" />
+    <category term="Hexo" />
+    <category term="Yilia" />
+    <category term="Valine" />
+    <category term="Live2d" />
+    <category term="Config" />
+    <category term="LeanCloud" />
+    <category term="IDEA" />
+    <category term="Maven" />
+    <category term="Java" />
+    <category term="SpringBoot" />
+    <category term="Thymeleaf" />
+    <category term="java" />
+    <category term="源码" />
+    <category term="软件" />
+    <category term="MyBatis" />
+    <category term="SSM" />
+    <category term="Gzip" />
+    <category term="JQuery" />
+    <category term="Node" />
+    <category term="Cache" />
+    <category term="Vue" />
+    <category term="TypeScript" />
+    <category term="Vercel" />
+    <category term="HTTP" />
+    <category term="Typecho" />
+    <category term="Blog" />
+    <category term="Webpack" />
+    <category term="Windows" />
+    <category term="Linux" />
+    <category term="PhotoShop" />
+    <category term="抠图" />
+    <category term="VSCode" />
+    <category term="jsdelivr" />
+    <category term="C#" />
+    <category term="Google Chrome" />
+    <category term="谷歌插件" />
+    <category term="Google-Chrome" />
+    <entry>
+        <id>https://blog.imlete.cn/article/PhotoShop-Batch.html</id>
+        <title>PhotoShop批量抠图、批量抠GIF</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/PhotoShop-Batch.html"/>
+        <content type="html">&lt;p&gt;在几个月前就想写这这篇文章了，由于种种原因没时间写，现在放假了，就腾出时间写了&lt;br&gt;就是想记录以下。很少用到的东西，时间久了就会忘记，我不想未来的某一天当我要用到这个功能的时候，又要网上搜，很麻烦。&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;当我们需要给多张图片抠图的时候，我们不可能一个个图片的去抠，这样效率实在是太低了&lt;br&gt;在几个月前我就用了这个办法抠了 GIF 图片的背景图为透明&lt;/p&gt;
+&lt;p&gt;将 GIF 图拆分出来，得到每张 GIF 的图片&lt;/p&gt;
+&lt;p&gt;这里我使用的是一款很好用的 GIF 录制、编辑工具拆分得到的&lt;/p&gt;
+&lt;p&gt;Github: &lt;a href=&#34;https://github.com/NickeManarin/ScreenToGif&#34;&gt;ScreenToGif&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;优点&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;跨平台&lt;/li&gt;
+&lt;li&gt;体积小&lt;/li&gt;
+&lt;li&gt;完全免费(开源、C#编写)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;目前我使用的最新版&lt;code&gt;Version: 2.27.3&lt;/code&gt;版本体积才 4MB&lt;/p&gt;
+&lt;p&gt;当然你使用其他工具也行，只要得到 GIF 的全部图片即可&lt;/p&gt;
+&lt;p&gt;将 GIF 图拖入&lt;code&gt;ScreenToGif&lt;/code&gt;工具&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/WindMill64.gif&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;拆分-GIF&#34;&gt;&lt;a href=&#34;#拆分-GIF&#34; class=&#34;headerlink&#34; title=&#34;拆分 GIF&#34;&gt;&lt;/a&gt;拆分 GIF&lt;/h3&gt;&lt;p&gt;新建两个文件夹&lt;code&gt;input&lt;/code&gt;(输入)和&lt;code&gt;output&lt;/code&gt;(输出)，我是新建桌面上的，因为处理完我就删掉&lt;/p&gt;
+&lt;p&gt;在底部随便选中一张右键浏览文件夹，会自动打开文件夹，直接复制里面的拆分好的图片到&lt;code&gt;input&lt;/code&gt;文件夹里即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/1.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/2.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;配置-PS&#34;&gt;&lt;a href=&#34;#配置-PS&#34; class=&#34;headerlink&#34; title=&#34;配置 PS&#34;&gt;&lt;/a&gt;配置 PS&lt;/h3&gt;&lt;p&gt;在此之前先将&lt;code&gt;input&lt;/code&gt;的第一张图片复制放到桌面，让后用 ps 打开这张图片&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/3.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;p&gt;如果你发现你的界面没有&lt;code&gt;时间轴&lt;/code&gt;和&lt;code&gt;动作&lt;/code&gt;的话，点击顶部的窗口，口选即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/4.png&#34; alt=&#34;WindMill&#34;&gt;&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/5.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;p&gt;可以看到动作里有个&lt;code&gt;Lete乐特&lt;/code&gt;的动作文件夹，那是我之前写的&lt;/p&gt;
+&lt;p&gt;可以看出下面有几个按钮&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;分别是&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;停止&lt;/li&gt;
+&lt;li&gt;录制&lt;/li&gt;
+&lt;li&gt;播放选中的动作&lt;/li&gt;
+&lt;li&gt;创建组(动作文件夹)&lt;/li&gt;
+&lt;li&gt;创建动作&lt;/li&gt;
+&lt;li&gt;删除选中&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/6.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;开始&#34;&gt;&lt;a href=&#34;#开始&#34; class=&#34;headerlink&#34; title=&#34;开始&#34;&gt;&lt;/a&gt;开始&lt;/h3&gt;&lt;p&gt;这里我已经创建过组(文件夹)了，我就不在新建了，直接新建动作，昵称自定义，默认会帮你开启录制&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在左边工具栏选中&lt;code&gt;魔棒工具&lt;/code&gt;然后选中白色区域。按住键盘上的 Delete 删除&lt;blockquote&gt;
+&lt;p&gt;注意上方的&lt;code&gt;连续&lt;/code&gt;，意思指的是选中的白色，而不是全局白色，去掉勾选才是全局白色，如果你想指定颜色的话，你可以使用颜色吸取(这里不进行演示)&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/7.png&#34; alt=&#34;WindMill&#34;&gt;&lt;br&gt;注意如果你的图层是锁住的，需要先解锁&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/8.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/1.gif&#34; alt=&#34;WindMill&#34;&gt;&lt;br&gt;然后&lt;code&gt;ctrl+shift+s&lt;/code&gt;保存到&lt;code&gt;output&lt;/code&gt;文件夹内即可&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/PhotoShop-Batch/9.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;p&gt;好的，现在已经完成了一系列的操作，接下来你得把更改操作得到的背景透明图片删掉(删掉&lt;code&gt;output&lt;/code&gt;的 0.png)&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;&lt;p&gt;点击左上角&lt;code&gt;文件&lt;/code&gt;—&amp;gt;&lt;code&gt;自动&lt;/code&gt;—&amp;gt;&lt;code&gt;批处理&lt;/code&gt;，选择刚才录制的动作，选择&lt;code&gt;源&lt;/code&gt;文件夹(也就是 input),随后点击确定即可自动执行了，之后就全部保存到了 output 文件夹内了&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/10.png&#34; alt=&#34;WindMill&#34;&gt;&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/11.png&#34; alt=&#34;WindMill&#34;&gt;&lt;br&gt;执行完毕后，把图片全部关掉(一路选择否)&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/12.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;将&lt;code&gt;output&lt;/code&gt;处理好的第一张图片拖入 ps，点击下方的&lt;code&gt;创建时间轴&lt;/code&gt;，然后点击后面的&lt;code&gt;+&lt;/code&gt;加号&lt;br&gt;选中全部图片，因为刚才已经拖入第一张图片了，这里就不选第一张了&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/13.png&#34; alt=&#34;WindMill&#34;&gt;&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/14.png&#34; alt=&#34;WindMill&#34;&gt;&lt;br&gt;点击左下角的三个框，然后点击第一张图片按住&lt;code&gt;shift&lt;/code&gt;点击最后一张图片，任意选一张图片下面的时间，我设置为&lt;code&gt;0.07&lt;/code&gt;秒&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/15.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;完成后，点击左上角&lt;code&gt;文件&lt;/code&gt;—&amp;gt;&lt;code&gt;导出&lt;/code&gt;—&amp;gt;&lt;code&gt;存储为旧版web&lt;/code&gt;(快捷键&lt;code&gt;ctrl+shift+alt+s&lt;/code&gt;),点击&lt;code&gt;存储&lt;/code&gt;到指定位置即可&lt;br&gt;&lt;img src=&#34;/img/PhotoShop-Batch/16.png&#34; alt=&#34;WindMill&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如有特殊要求，可以自己更改参数&lt;/p&gt;
+</content>
+        <category term="PhotoShop" />
+        <category term="抠图" />
+        <updated>2021-01-30T21:53:11.000Z</updated>
+    </entry>
+</feed>

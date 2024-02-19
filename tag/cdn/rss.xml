@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Lete乐特 &#39;s Blog • Posts by &#34;cdn&#34; tag</title>
+        <link>https://blog.imlete.cn</link>
+        <description>我相信我可以，但我一直在路上，所以我有无限的可能！！</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 28 May 2020 13:20:13 +0000</pubDate>
+        <lastBuildDate>Thu, 28 May 2020 13:20:13 +0000</lastBuildDate>
+        <category>CSS</category>
+        <category>记录</category>
+        <category>JavaScript</category>
+        <category>Git</category>
+        <category>教程</category>
+        <category>HTML</category>
+        <category>CDN</category>
+        <category>Github</category>
+        <category>Jsdeliver</category>
+        <category>SEO</category>
+        <category>Hexo</category>
+        <category>Yilia</category>
+        <category>Valine</category>
+        <category>Live2d</category>
+        <category>Config</category>
+        <category>LeanCloud</category>
+        <category>IDEA</category>
+        <category>Maven</category>
+        <category>Java</category>
+        <category>SpringBoot</category>
+        <category>Thymeleaf</category>
+        <category>java</category>
+        <category>源码</category>
+        <category>软件</category>
+        <category>MyBatis</category>
+        <category>SSM</category>
+        <category>Gzip</category>
+        <category>JQuery</category>
+        <category>Node</category>
+        <category>Cache</category>
+        <category>Vue</category>
+        <category>TypeScript</category>
+        <category>Vercel</category>
+        <category>HTTP</category>
+        <category>Typecho</category>
+        <category>Blog</category>
+        <category>Webpack</category>
+        <category>Windows</category>
+        <category>Linux</category>
+        <category>PhotoShop</category>
+        <category>抠图</category>
+        <category>VSCode</category>
+        <category>jsdelivr</category>
+        <category>C#</category>
+        <category>Google Chrome</category>
+        <category>谷歌插件</category>
+        <category>Google-Chrome</category>
+        <item>
+            <guid isPermalink="true">https://blog.imlete.cn/article/2aa315b1.html</guid>
+            <title>Hexo+Github Pages个人博客CDN加速、优化博客的加载速度、提高用户体验</title>
+            <link>https://blog.imlete.cn/article/2aa315b1.html</link>
+            <category>教程</category>
+            <category>CDN</category>
+            <category>Github</category>
+            <category>Jsdeliver</category>
+            <pubDate>Thu, 28 May 2020 13:20:13 +0000</pubDate>
+            <description><![CDATA[ &lt;br&gt;
+
+&lt;h3 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h3&gt;&lt;p&gt;都知道 Github Pages 搭建博客后，访问是非常慢，就连 Github 官网在大陆打开也是很慢，另外我们搭建的个人博客免不了在文章里添加图片，图片一多就会影响博客的加载速度，还有博客需要用到的 js 文件，每次都需要重 Github 博客仓库提取资源，总不能每张图片都要压缩内存大小后再上传吧？显然这不是我们想要的，我们要的是方便快捷。&lt;/p&gt;
+&lt;h3 id=&#34;优化加载速度&#34;&gt;&lt;a href=&#34;#优化加载速度&#34; class=&#34;headerlink&#34; title=&#34;优化加载速度&#34;&gt;&lt;/a&gt;优化加载速度&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;如何优化？选择什么优化方式？&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ol&gt;
+&lt;li&gt;使用 CDN 加速？&lt;/li&gt;
+&lt;li&gt;使用图床？&lt;/li&gt;
+&lt;li&gt;第三方托管在线 js 文件？&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h5 id=&#34;使用-JsDelivr&#34;&gt;&lt;a href=&#34;#使用-JsDelivr&#34; class=&#34;headerlink&#34; title=&#34;使用 JsDelivr&#34;&gt;&lt;/a&gt;使用 JsDelivr&lt;/h5&gt;&lt;p&gt;他提供 npm github wordpress 资源的加速，在中国也有很多节点，速度很快。&lt;/p&gt;
+&lt;h5 id=&#34;为什么使用-JsDelivr？&#34;&gt;&lt;a href=&#34;#为什么使用-JsDelivr？&#34; class=&#34;headerlink&#34; title=&#34;为什么使用 JsDelivr？&#34;&gt;&lt;/a&gt;为什么使用 JsDelivr？&lt;/h5&gt;&lt;p&gt;&lt;span style=&#34;font-size:30px;color:red;&#34;&gt;免费、稳定&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;不像某些图床网站，用了一段时间就跑路了，如何自己的图片也没了。&lt;/p&gt;
+&lt;p&gt;但是如果你使用的是&lt;code&gt;JsDelivr&lt;/code&gt;，就算跑路(当然这是不纯在的)，我们的图片依然有保留，因为我们图片等资源是保留再自己的&lt;code&gt;Github&lt;/code&gt;仓库里的，所以无需担心&lt;/p&gt;
+&lt;h3 id=&#34;JsDelivr-CDN-加速&#34;&gt;&lt;a href=&#34;#JsDelivr-CDN-加速&#34; class=&#34;headerlink&#34; title=&#34;JsDelivr CDN 加速&#34;&gt;&lt;/a&gt;JsDelivr CDN 加速&lt;/h3&gt;&lt;p&gt;1.New 一个新的 Github 仓库，取名为&lt;code&gt;CDN&lt;/code&gt;(当然这是自定义的)&lt;/p&gt;
+&lt;p&gt;2.将建好的仓库克隆到本地(在自己喜欢的文件加右键选择 Git)&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;git &lt;span class=&#34;built_in&#34;&gt;clone&lt;/span&gt; https://github.com/lete114/CDN.git &lt;span class=&#34;comment&#34;&gt;### 这里是你的CDN仓库地址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;3.把图片等资源都放进克隆下来的&lt;code&gt;CDN&lt;/code&gt;文件夹下(分类，当人你也可以不分类，我习惯整理我的文件夹【强迫症 😊】)如图：&lt;/p&gt;
+&lt;p&gt;4.提交到 GitHub 仓库即可&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 添加全部内容文件到暂存区&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 添加说明&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git commit -m&lt;span class=&#34;string&#34;&gt;&amp;#x27;第一次提交&amp;#x27;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 提交到远程仓库&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;git push&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;span style=&#39;color:red&#39;&gt;注：由于我的仓库被 GitHub 官方人员禁用，导致失效&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;然后就可以访问：&lt;a href=&#34;https://cdn.jsdelivr.net/gh/你的Github用户名/你的CDN仓库/文件文件夹/12.jpg&#34;&gt;https://cdn.jsdelivr.net/gh/你的Github用户名/你的CDN仓库/文件文件夹/12.jpg&lt;/a&gt;&lt;br&gt;例如：&lt;a href=&#34;https://cdn.jsdelivr.net/gh/lete114/CDN@3.0/BoBoPic/12.jpg&#34;&gt;https://cdn.jsdelivr.net/gh/lete114/CDN@3.0/BoBoPic/12.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;现在请你同时打开这两个地址做比较&lt;br&gt;GitHub:&lt;a href=&#34;https://lete114.github.io/CDN/BoBoPic/01.jpg&#34;&gt;https://lete114.github.io/CDN/BoBoPic/01.jpg&lt;/a&gt;&lt;br&gt;JsDelivr:&lt;a href=&#34;https://cdn.jsdelivr.net/gh/lete114/CDN@3.0/BoBoPic/12.jpg&#34;&gt;https://cdn.jsdelivr.net/gh/lete114/CDN@3.0/BoBoPic/12.jpg&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这个就是本章开头的高清图片，加载速度是不是比 Github 的速度块？&lt;/p&gt;
+&lt;p&gt;细心的已经看到我的 CDN 后面怎么有个@3.0&lt;br&gt;解释一下：这是第 3.0 版本的图片，如果不写@3.0 版本号的或就会适应当前最新的图片&lt;br&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/lete114/CDN/SEO/05.png&#34; alt=&#34;&#34;&gt;&lt;br&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/lete114/CDN/SEO/06.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

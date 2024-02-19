@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Lete乐特 &#39;s Blog • Posts by &#34;linux&#34; tag</title>
+        <link>https://blog.imlete.cn</link>
+        <description>我相信我可以，但我一直在路上，所以我有无限的可能！！</description>
+        <language>zh-CN</language>
+        <pubDate>Sat, 13 Nov 2021 09:40:50 +0000</pubDate>
+        <lastBuildDate>Sat, 13 Nov 2021 09:40:50 +0000</lastBuildDate>
+        <category>CSS</category>
+        <category>记录</category>
+        <category>JavaScript</category>
+        <category>Git</category>
+        <category>教程</category>
+        <category>HTML</category>
+        <category>CDN</category>
+        <category>Github</category>
+        <category>Jsdeliver</category>
+        <category>SEO</category>
+        <category>Hexo</category>
+        <category>Yilia</category>
+        <category>Valine</category>
+        <category>Live2d</category>
+        <category>Config</category>
+        <category>LeanCloud</category>
+        <category>IDEA</category>
+        <category>Maven</category>
+        <category>Java</category>
+        <category>SpringBoot</category>
+        <category>Thymeleaf</category>
+        <category>java</category>
+        <category>源码</category>
+        <category>软件</category>
+        <category>MyBatis</category>
+        <category>SSM</category>
+        <category>Gzip</category>
+        <category>JQuery</category>
+        <category>Node</category>
+        <category>Cache</category>
+        <category>Vue</category>
+        <category>TypeScript</category>
+        <category>Vercel</category>
+        <category>HTTP</category>
+        <category>Typecho</category>
+        <category>Blog</category>
+        <category>Webpack</category>
+        <category>Windows</category>
+        <category>Linux</category>
+        <category>PhotoShop</category>
+        <category>抠图</category>
+        <category>VSCode</category>
+        <category>jsdelivr</category>
+        <category>C#</category>
+        <category>Google Chrome</category>
+        <category>谷歌插件</category>
+        <category>Google-Chrome</category>
+        <item>
+            <guid isPermalink="true">https://blog.imlete.cn/article/Windows-Linux-SubSystem.html</guid>
+            <title>Windows安装Linux子系统</title>
+            <link>https://blog.imlete.cn/article/Windows-Linux-SubSystem.html</link>
+            <category>记录</category>
+            <category>Windows</category>
+            <category>Linux</category>
+            <pubDate>Sat, 13 Nov 2021 09:40:50 +0000</pubDate>
+            <description><![CDATA[ &lt;h2 id=&#34;废话&#34;&gt;&lt;a href=&#34;#废话&#34; class=&#34;headerlink&#34; title=&#34;废话&#34;&gt;&lt;/a&gt;废话&lt;/h2&gt;&lt;p&gt;在写了项目后，需要放到服务器上去运行测试，但仅仅是为了测试也没不要去掏钱买个服务器来进行测试(我觉得挺贵的)&lt;br&gt;本地电脑开个 VM 虚拟机？太吃配置了，而且启动速度还贼慢&lt;br&gt;直到最近我才知道 Windows 可以看起 Linux 之系统，于是就尝试了一下，于是我就写了这篇文章记录一下&lt;br&gt;官方文档: &lt;a href=&#34;https://docs.microsoft.com/zh-cn/windows/wsl/install-on-server&#34;&gt;https://docs.microsoft.com/zh-cn/windows/wsl/install-on-server&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;适用于 Linux 的 Windows 子系统可供在 Windows Server 2019（版本 1709）和更高版本上安装。&lt;br&gt;本文记录我是如何在 Windows 上启用 WSL 的步骤。并安装 Ubuntu 子系统的&lt;/p&gt;
+&lt;p&gt;必须启用&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;可选功能并重启，然后才能在 Windows 上运行 Linux 发行版。&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;启动&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;服务&lt;br&gt;以管理员身份打开 PowerShell 并运行：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意是以管理员身份运行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;Enable-WindowsOptionalFeature&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;-Online&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;-FeatureName&lt;/span&gt; Microsoft&lt;span class=&#34;literal&#34;&gt;-Windows-Subsystem-Linux&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;上方是以命令的方式开启&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;，如果不行的话你可以手动开启&lt;/p&gt;
+&lt;p&gt;按 win 键直接输入(或者打开设置搜索也一样)&lt;code&gt;启用或关闭 Windows 功能&lt;/code&gt;并打开找到&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;选项勾选后点击&lt;code&gt;确定&lt;/code&gt;稍等一会儿会弹出以可框，会提示你重启电脑&lt;/p&gt;
+&lt;h3 id=&#34;安装-Linux-子系统&#34;&gt;&lt;a href=&#34;#安装-Linux-子系统&#34; class=&#34;headerlink&#34; title=&#34;安装 Linux 子系统&#34;&gt;&lt;/a&gt;安装 Linux 子系统&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;如果按安装过程中遇到任何问题，可多重试两边&lt;br&gt;如果依旧报错失败，可以到系统设置中(设置中开发者选项的未知可能在不同版本中出现的位置不同)&lt;code&gt;隐私和安全性&lt;/code&gt;—&amp;gt;&lt;code&gt;开发者选项&lt;/code&gt;开启开启开发者，随后重新安装&lt;br&gt;如果还不行，则重启电脑后再试试&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;自动安装直接到 &lt;code&gt;Microsoft Store&lt;/code&gt; 搜索&lt;code&gt;Ubuntu&lt;/code&gt; 进行下载即可(版本就随便你啦)&lt;br&gt;不过自动安装会直接安装到 C 盘，用的时间长了会堆积很多文件，导致 C 盘爆红，所以我更建议手动安装(不难)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里只描述如何手动安装 Ubuntu 子系统，好处就是能自定义安装路径，不会占用 C 盘空间&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;博主下载的是&lt;code&gt;Ubuntu 20.04&lt;/code&gt;发行版&lt;br&gt;系统下载地址如下: &lt;a href=&#34;https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#downloading-distributions&#34;&gt;官方发行版下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下载下来后，(剪切或复制随便你)复制到你想要安装的路径下，修改后缀名为&lt;code&gt;.zip&lt;/code&gt;解压，运行&lt;code&gt;ubuntu2004.exe&lt;/code&gt;即可&lt;/p&gt;
+&lt;p&gt;进入后会让你输入用户名和密码，自己写一个就行了&lt;/p&gt;
+&lt;p&gt;随后就是修改 root 的密码，输入&lt;code&gt;su root&lt;/code&gt;或者是&lt;code&gt;sudo pass&lt;/code&gt;跟着提示输入即可&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;至此，你就有了一个本地的 Linux 测试环境，因为这个子系统是和主系统联通的，用到的 ip 也是和主系统一样的&lt;/p&gt;
+&lt;p&gt;输入&lt;code&gt;ls&lt;/code&gt; 可以看到有个&lt;code&gt;mnt&lt;/code&gt;目录，进入后就可以看到主系统的盘符，他们是互通的&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

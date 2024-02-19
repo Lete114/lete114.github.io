@@ -1,0 +1,159 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.imlete.cn</id>
+    <title>Lete乐特 &#39;s Blog • Posts by &#34;windows&#34; tag</title>
+    <link href="https://blog.imlete.cn" />
+    <updated>2023-03-18T12:11:03.000Z</updated>
+    <category term="CSS" />
+    <category term="记录" />
+    <category term="JavaScript" />
+    <category term="Git" />
+    <category term="教程" />
+    <category term="HTML" />
+    <category term="CDN" />
+    <category term="Github" />
+    <category term="Jsdeliver" />
+    <category term="SEO" />
+    <category term="Hexo" />
+    <category term="Yilia" />
+    <category term="Valine" />
+    <category term="Live2d" />
+    <category term="Config" />
+    <category term="LeanCloud" />
+    <category term="IDEA" />
+    <category term="Maven" />
+    <category term="Java" />
+    <category term="SpringBoot" />
+    <category term="Thymeleaf" />
+    <category term="java" />
+    <category term="源码" />
+    <category term="软件" />
+    <category term="MyBatis" />
+    <category term="SSM" />
+    <category term="Gzip" />
+    <category term="JQuery" />
+    <category term="Node" />
+    <category term="Cache" />
+    <category term="Vue" />
+    <category term="TypeScript" />
+    <category term="Vercel" />
+    <category term="HTTP" />
+    <category term="Typecho" />
+    <category term="Blog" />
+    <category term="Webpack" />
+    <category term="Windows" />
+    <category term="Linux" />
+    <category term="PhotoShop" />
+    <category term="抠图" />
+    <category term="VSCode" />
+    <category term="jsdelivr" />
+    <category term="C#" />
+    <category term="Google Chrome" />
+    <category term="谷歌插件" />
+    <category term="Google-Chrome" />
+    <entry>
+        <id>https://blog.imlete.cn/article/Beautify-Windows-Terminal-PowerShell.html</id>
+        <title>美化 Windows 终端(Terminal + PowerShell)</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/Beautify-Windows-Terminal-PowerShell.html"/>
+        <content type="html">&lt;h2 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;废话不多说，这是我做的一个 Oh-My-Posh 终端主题，仓库地址: &lt;a href=&#34;https://github.com/Lete114/oh-my-posh-themes&#34;&gt;https://github.com/Lete114/oh-my-posh-themes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;效果如下:&lt;br&gt;&lt;img src=&#34;/img/Beautify-Windows-Terminal-PowerShell/lete114.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Windows-Terminal&#34;&gt;&lt;a href=&#34;#Windows-Terminal&#34; class=&#34;headerlink&#34; title=&#34;Windows Terminal&#34;&gt;&lt;/a&gt;Windows Terminal&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;安装需要 Win10 2004（内部版本 19041）或更高版本&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Windows Terminal 是微软开源一个终端工具，主要功能包括多个选项卡、窗格、Unicode、和 UTF-8 字符支持，GPU 加速文本渲染引擎以及自定义主题、样式和配置&lt;/p&gt;
+&lt;p&gt;总之比 cmd、powershell 那丑不拉几的窗口好使就对了&lt;/p&gt;
+&lt;p&gt;可以通过微软商店直接安装，或者到开源仓库取下载安装都可以&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/microsoft/terminal&#34;&gt;https://github.com/microsoft/terminal&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;Oh-My-Posh&#34;&gt;&lt;a href=&#34;#Oh-My-Posh&#34; class=&#34;headerlink&#34; title=&#34;Oh My Posh&#34;&gt;&lt;/a&gt;Oh My Posh&lt;/h2&gt;&lt;p&gt;Oh My Posh 类似于 Oh My zsh 的一个命令行提示工具，具体的得看官网描述 &lt;a href=&#34;https://ohmyposh.dev/docs/&#34;&gt;Oh My Posh Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;安装 Oh My Posh ，参考官网安装教程&lt;br&gt;&lt;a href=&#34;https://ohmyposh.dev/docs/installation/windows&#34;&gt;https://ohmyposh.dev/docs/installation/windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用 &lt;code&gt;winget&lt;/code&gt; 安装&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;winget install JanDeDobbeleer.OhMyPosh -s winget&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;建议使用 powershell&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;使用 Oh My Posh，如果你不找到你当前使用的是什么终端，你可以执行这条命令查看，具体详细请看官网 &lt;a href=&#34;https://ohmyposh.dev/docs/installation/prompt&#34;&gt;https://ohmyposh.dev/docs/installation/prompt&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;oh-my-posh get shell&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;使用记事本或 vscode 打开 powershell 的配置文件&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 记事本&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notepad &lt;span class=&#34;variable&#34;&gt;$PROFILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# vscode&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;code &lt;span class=&#34;variable&#34;&gt;$PROFILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;当上述命令出现错误时，确保先创建配置文件&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;New-Item -Path &lt;span class=&#34;variable&#34;&gt;$PROFILE&lt;/span&gt; -Type File -Force&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;在文件中添加如下代码使用 Oh My Posh&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;15&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 注意这仅仅只是使用了 Oh My Posh，你可能会发现终端有乱码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 因为 Oh My Posh 使用了 Nerd Fonts 字体中的一些图标，如果你的电脑中没有 Nerd Fonts 字体就会出现乱码&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 自带的主题就使用了 Nerd Fonts 的图标&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oh-my-posh init pwsh | Invoke-Expression&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 自定义主题，使用 Oh My Posh 自带的一些开箱即用主题&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 这里是 Oh My Posh 自带的主题 https://ohmyposh.dev/docs/themes&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oh-my-posh init pwsh --config &lt;span class=&#34;string&#34;&gt;&amp;quot;&lt;span class=&#34;variable&#34;&gt;$env&lt;/span&gt;:POSH_THEMES_PATH/robbyrussell.omp.json&amp;quot;&lt;/span&gt; | Invoke-Expression&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 下载我做的主题，我主题不需要安装 Nerd Fonts 字体&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# https://raw.githubusercontent.com/Lete114/oh-my-posh-themes/main/lete114/lete114.minimal.omp.yaml&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;oh-my-posh init pwsh --config &lt;span class=&#34;string&#34;&gt;&amp;quot;你下载的路径/lete114.minimal.omp.yaml&amp;quot;&lt;/span&gt; | Invoke-Expression&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 之后执行以下命令加载配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;. &lt;span class=&#34;variable&#34;&gt;$profile&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;安装字体&#34;&gt;&lt;a href=&#34;#安装字体&#34; class=&#34;headerlink&#34; title=&#34;安装字体&#34;&gt;&lt;/a&gt;安装字体&lt;/h3&gt;&lt;p&gt;如果你使用的主题是含 &lt;code&gt;minimal&lt;/code&gt; 的就不需要安装&lt;/p&gt;
+&lt;p&gt;参考官方: &lt;a href=&#34;https://ohmyposh.dev/docs/installation/fonts#configuration&#34;&gt;https://ohmyposh.dev/docs/installation/fonts#configuration&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;oh-my-posh font install&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 也可以直接手动下载&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 下载完成后解压，全选右键点击安装即可自动安装&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Meslo.zip&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;以下操作是根据 Oh My Posh 官网教程搬过来的，但不知道为什么我的字体依然显示乱码&lt;br&gt;有知道是啥问题的小伙伴可以在评论区回复我&lt;br&gt;当然，设置字体也可以在 Windows Terminal 的设置中设置，不必打开配置文件 (但同样我也不知道为什么我的 Windows Terminal 里面没有设置字体的选项，就挺离谱 😅)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;安装完成后打开 Windows Terminal 然后按 &lt;code&gt;Ctrl+Shift+,&lt;/code&gt;(逗号) 来打开 settings.json 配置文件&lt;/p&gt;
+&lt;p&gt;找到 &lt;code&gt;profiles-&amp;gt;defaults&lt;/code&gt; 设置 &lt;code&gt;font-&amp;gt;face&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight plaintext&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;quot;profiles&amp;quot;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;quot;defaults&amp;quot;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;quot;font&amp;quot;:&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;                &amp;quot;face&amp;quot;: &amp;quot;MesloLGM NF&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;posh-git&#34;&gt;&lt;a href=&#34;#posh-git&#34; class=&#34;headerlink&#34; title=&#34;posh-git&#34;&gt;&lt;/a&gt;posh-git&lt;/h2&gt;&lt;p&gt;提供完整的 git 命令行提示以及自动补全&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/dahlbyk/posh-git&#34;&gt;https://github.com/dahlbyk/posh-git&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 安装 posh-git&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Install-Module posh-git -Scope CurrentUser -Force&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;然后打开 PowerShell 配置文件，添加一行导入命令 &lt;code&gt;Import-Module posh-git&lt;/code&gt; 即可&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 记事本打开配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notepad &lt;span class=&#34;variable&#34;&gt;$PROFILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或使用 vscode 打开配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;code &lt;span class=&#34;variable&#34;&gt;$PROFILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;PSReadLine&#34;&gt;&lt;a href=&#34;#PSReadLine&#34; class=&#34;headerlink&#34; title=&#34;PSReadLine&#34;&gt;&lt;/a&gt;PSReadLine&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;PowerShell 官方的插件，可以放心使用&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;提供输入提醒，类似于 zsh 中有个插件，具体叫什么名字我忘了，就是当你输入一个命令输入到一半后，控制台就会有灰色命令提示，之后按下方向键的右键（-&amp;gt;）键就能不全的根据&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/PowerShell/PSReadLine&#34;&gt;https://github.com/PowerShell/PSReadLine&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 以下是搬运的官方的教程&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Install-Module -Name PowerShellGet -Force&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Install-Module PSReadLine -AllowPrerelease -Force&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;之后&lt;/p&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;14&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 记事本打开配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;notepad &lt;span class=&#34;variable&#34;&gt;$PROFILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# 或使用 vscode 打开配置文件&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;code &lt;span class=&#34;variable&#34;&gt;$PROFILE&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# PSReadLine&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Import-Module PSReadLine&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Enable Prediction History&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Set-PSReadLineOption -PredictionSource History&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;# Advanced Autocompletion for arrow keys&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Set-PSReadlineKeyHandler -Key UpArrow -Function HistorySearchBackward&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;Set-PSReadlineKeyHandler -Key DownArrow -Function HistorySearchForward&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+
+
+</content>
+        <category term="记录" />
+        <category term="Windows" />
+        <updated>2023-03-18T12:11:03.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://blog.imlete.cn/article/Windows-Linux-SubSystem.html</id>
+        <title>Windows安装Linux子系统</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/Windows-Linux-SubSystem.html"/>
+        <content type="html">&lt;h2 id=&#34;废话&#34;&gt;&lt;a href=&#34;#废话&#34; class=&#34;headerlink&#34; title=&#34;废话&#34;&gt;&lt;/a&gt;废话&lt;/h2&gt;&lt;p&gt;在写了项目后，需要放到服务器上去运行测试，但仅仅是为了测试也没不要去掏钱买个服务器来进行测试(我觉得挺贵的)&lt;br&gt;本地电脑开个 VM 虚拟机？太吃配置了，而且启动速度还贼慢&lt;br&gt;直到最近我才知道 Windows 可以看起 Linux 之系统，于是就尝试了一下，于是我就写了这篇文章记录一下&lt;br&gt;官方文档: &lt;a href=&#34;https://docs.microsoft.com/zh-cn/windows/wsl/install-on-server&#34;&gt;https://docs.microsoft.com/zh-cn/windows/wsl/install-on-server&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;适用于 Linux 的 Windows 子系统可供在 Windows Server 2019（版本 1709）和更高版本上安装。&lt;br&gt;本文记录我是如何在 Windows 上启用 WSL 的步骤。并安装 Ubuntu 子系统的&lt;/p&gt;
+&lt;p&gt;必须启用&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;可选功能并重启，然后才能在 Windows 上运行 Linux 发行版。&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;启动&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;服务&lt;br&gt;以管理员身份打开 PowerShell 并运行：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意是以管理员身份运行&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight powershell&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;built_in&#34;&gt;Enable-WindowsOptionalFeature&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;-Online&lt;/span&gt; &lt;span class=&#34;literal&#34;&gt;-FeatureName&lt;/span&gt; Microsoft&lt;span class=&#34;literal&#34;&gt;-Windows-Subsystem-Linux&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;上方是以命令的方式开启&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;，如果不行的话你可以手动开启&lt;/p&gt;
+&lt;p&gt;按 win 键直接输入(或者打开设置搜索也一样)&lt;code&gt;启用或关闭 Windows 功能&lt;/code&gt;并打开找到&lt;code&gt;适用于 Linux 的 Windows 子系统&lt;/code&gt;选项勾选后点击&lt;code&gt;确定&lt;/code&gt;稍等一会儿会弹出以可框，会提示你重启电脑&lt;/p&gt;
+&lt;h3 id=&#34;安装-Linux-子系统&#34;&gt;&lt;a href=&#34;#安装-Linux-子系统&#34; class=&#34;headerlink&#34; title=&#34;安装 Linux 子系统&#34;&gt;&lt;/a&gt;安装 Linux 子系统&lt;/h3&gt;&lt;blockquote&gt;
+&lt;p&gt;如果按安装过程中遇到任何问题，可多重试两边&lt;br&gt;如果依旧报错失败，可以到系统设置中(设置中开发者选项的未知可能在不同版本中出现的位置不同)&lt;code&gt;隐私和安全性&lt;/code&gt;—&amp;gt;&lt;code&gt;开发者选项&lt;/code&gt;开启开启开发者，随后重新安装&lt;br&gt;如果还不行，则重启电脑后再试试&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;自动安装直接到 &lt;code&gt;Microsoft Store&lt;/code&gt; 搜索&lt;code&gt;Ubuntu&lt;/code&gt; 进行下载即可(版本就随便你啦)&lt;br&gt;不过自动安装会直接安装到 C 盘，用的时间长了会堆积很多文件，导致 C 盘爆红，所以我更建议手动安装(不难)&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这里只描述如何手动安装 Ubuntu 子系统，好处就是能自定义安装路径，不会占用 C 盘空间&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;博主下载的是&lt;code&gt;Ubuntu 20.04&lt;/code&gt;发行版&lt;br&gt;系统下载地址如下: &lt;a href=&#34;https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#downloading-distributions&#34;&gt;官方发行版下载地址&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;下载下来后，(剪切或复制随便你)复制到你想要安装的路径下，修改后缀名为&lt;code&gt;.zip&lt;/code&gt;解压，运行&lt;code&gt;ubuntu2004.exe&lt;/code&gt;即可&lt;/p&gt;
+&lt;p&gt;进入后会让你输入用户名和密码，自己写一个就行了&lt;/p&gt;
+&lt;p&gt;随后就是修改 root 的密码，输入&lt;code&gt;su root&lt;/code&gt;或者是&lt;code&gt;sudo pass&lt;/code&gt;跟着提示输入即可&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;&lt;a href=&#34;#总结&#34; class=&#34;headerlink&#34; title=&#34;总结&#34;&gt;&lt;/a&gt;总结&lt;/h2&gt;&lt;p&gt;至此，你就有了一个本地的 Linux 测试环境，因为这个子系统是和主系统联通的，用到的 ip 也是和主系统一样的&lt;/p&gt;
+&lt;p&gt;输入&lt;code&gt;ls&lt;/code&gt; 可以看到有个&lt;code&gt;mnt&lt;/code&gt;目录，进入后就可以看到主系统的盘符，他们是互通的&lt;/p&gt;
+</content>
+        <category term="记录" />
+        <category term="Windows" />
+        <category term="Linux" />
+        <updated>2021-11-13T09:40:50.000Z</updated>
+    </entry>
+</feed>

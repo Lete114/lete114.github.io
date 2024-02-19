@@ -1,0 +1,20 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Lete乐特 's Blog • All posts by \"linux\" tag",
+    "description": "我相信我可以，但我一直在路上，所以我有无限的可能！！",
+    "home_page_url": "https://blog.imlete.cn",
+    "items": [
+        {
+            "id": "https://blog.imlete.cn/article/Windows-Linux-SubSystem.html",
+            "url": "https://blog.imlete.cn/article/Windows-Linux-SubSystem.html",
+            "title": "Windows安装Linux子系统",
+            "date_published": "2021-11-13T09:40:50.000Z",
+            "content_html": "<h2 id=\"废话\"><a href=\"#废话\" class=\"headerlink\" title=\"废话\"></a>废话</h2><p>在写了项目后，需要放到服务器上去运行测试，但仅仅是为了测试也没不要去掏钱买个服务器来进行测试(我觉得挺贵的)<br>本地电脑开个 VM 虚拟机？太吃配置了，而且启动速度还贼慢<br>直到最近我才知道 Windows 可以看起 Linux 之系统，于是就尝试了一下，于是我就写了这篇文章记录一下<br>官方文档: <a href=\"https://docs.microsoft.com/zh-cn/windows/wsl/install-on-server\">https://docs.microsoft.com/zh-cn/windows/wsl/install-on-server</a></p>\n<p>适用于 Linux 的 Windows 子系统可供在 Windows Server 2019（版本 1709）和更高版本上安装。<br>本文记录我是如何在 Windows 上启用 WSL 的步骤。并安装 Ubuntu 子系统的</p>\n<p>必须启用<code>适用于 Linux 的 Windows 子系统</code>可选功能并重启，然后才能在 Windows 上运行 Linux 发行版。</p>\n<h2 id=\"正文\"><a href=\"#正文\" class=\"headerlink\" title=\"正文\"></a>正文</h2><p>启动<code>适用于 Linux 的 Windows 子系统</code>服务<br>以管理员身份打开 PowerShell 并运行：</p>\n<blockquote>\n<p>注意是以管理员身份运行</p>\n</blockquote>\n<figure class=\"highlight powershell\"><table><tr><td class=\"gutter\"><pre><span class=\"line\">1</span><br></pre></td><td class=\"code\"><pre><span class=\"line\"><span class=\"built_in\">Enable-WindowsOptionalFeature</span> <span class=\"literal\">-Online</span> <span class=\"literal\">-FeatureName</span> Microsoft<span class=\"literal\">-Windows-Subsystem-Linux</span></span><br></pre></td></tr></table></figure>\n\n<p>上方是以命令的方式开启<code>适用于 Linux 的 Windows 子系统</code>，如果不行的话你可以手动开启</p>\n<p>按 win 键直接输入(或者打开设置搜索也一样)<code>启用或关闭 Windows 功能</code>并打开找到<code>适用于 Linux 的 Windows 子系统</code>选项勾选后点击<code>确定</code>稍等一会儿会弹出以可框，会提示你重启电脑</p>\n<h3 id=\"安装-Linux-子系统\"><a href=\"#安装-Linux-子系统\" class=\"headerlink\" title=\"安装 Linux 子系统\"></a>安装 Linux 子系统</h3><blockquote>\n<p>如果按安装过程中遇到任何问题，可多重试两边<br>如果依旧报错失败，可以到系统设置中(设置中开发者选项的未知可能在不同版本中出现的位置不同)<code>隐私和安全性</code>—&gt;<code>开发者选项</code>开启开启开发者，随后重新安装<br>如果还不行，则重启电脑后再试试</p>\n</blockquote>\n<blockquote>\n<p>自动安装直接到 <code>Microsoft Store</code> 搜索<code>Ubuntu</code> 进行下载即可(版本就随便你啦)<br>不过自动安装会直接安装到 C 盘，用的时间长了会堆积很多文件，导致 C 盘爆红，所以我更建议手动安装(不难)</p>\n</blockquote>\n<p>这里只描述如何手动安装 Ubuntu 子系统，好处就是能自定义安装路径，不会占用 C 盘空间</p>\n<blockquote>\n<p>博主下载的是<code>Ubuntu 20.04</code>发行版<br>系统下载地址如下: <a href=\"https://docs.microsoft.com/zh-cn/windows/wsl/install-manual#downloading-distributions\">官方发行版下载地址</a></p>\n</blockquote>\n<p>下载下来后，(剪切或复制随便你)复制到你想要安装的路径下，修改后缀名为<code>.zip</code>解压，运行<code>ubuntu2004.exe</code>即可</p>\n<p>进入后会让你输入用户名和密码，自己写一个就行了</p>\n<p>随后就是修改 root 的密码，输入<code>su root</code>或者是<code>sudo pass</code>跟着提示输入即可</p>\n<h2 id=\"总结\"><a href=\"#总结\" class=\"headerlink\" title=\"总结\"></a>总结</h2><p>至此，你就有了一个本地的 Linux 测试环境，因为这个子系统是和主系统联通的，用到的 ip 也是和主系统一样的</p>\n<p>输入<code>ls</code> 可以看到有个<code>mnt</code>目录，进入后就可以看到主系统的盘符，他们是互通的</p>\n",
+            "tags": [
+                "记录",
+                "Windows",
+                "Linux"
+            ]
+        }
+    ]
+}

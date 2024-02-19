@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.imlete.cn</id>
+    <title>Lete乐特 &#39;s Blog • Posts by &#34;typescript&#34; tag</title>
+    <link href="https://blog.imlete.cn" />
+    <updated>2022-06-06T15:52:50.000Z</updated>
+    <category term="CSS" />
+    <category term="记录" />
+    <category term="JavaScript" />
+    <category term="Git" />
+    <category term="教程" />
+    <category term="HTML" />
+    <category term="CDN" />
+    <category term="Github" />
+    <category term="Jsdeliver" />
+    <category term="SEO" />
+    <category term="Hexo" />
+    <category term="Yilia" />
+    <category term="Valine" />
+    <category term="Live2d" />
+    <category term="Config" />
+    <category term="LeanCloud" />
+    <category term="IDEA" />
+    <category term="Maven" />
+    <category term="Java" />
+    <category term="SpringBoot" />
+    <category term="Thymeleaf" />
+    <category term="java" />
+    <category term="源码" />
+    <category term="软件" />
+    <category term="MyBatis" />
+    <category term="SSM" />
+    <category term="Gzip" />
+    <category term="JQuery" />
+    <category term="Node" />
+    <category term="Cache" />
+    <category term="Vue" />
+    <category term="TypeScript" />
+    <category term="Vercel" />
+    <category term="HTTP" />
+    <category term="Typecho" />
+    <category term="Blog" />
+    <category term="Webpack" />
+    <category term="Windows" />
+    <category term="Linux" />
+    <category term="PhotoShop" />
+    <category term="抠图" />
+    <category term="VSCode" />
+    <category term="jsdelivr" />
+    <category term="C#" />
+    <category term="Google Chrome" />
+    <category term="谷歌插件" />
+    <category term="Google-Chrome" />
+    <entry>
+        <id>https://blog.imlete.cn/article/build-ts-doc.html</id>
+        <title>如何为自己的js项目生成API文档</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/build-ts-doc.html"/>
+        <content type="html">&lt;p&gt;如题，当自己写完了一个第三方库，准备发布时，总不能直接把一些使用方法以及传参说明写在&lt;code&gt;README.md&lt;/code&gt;里吧&lt;/p&gt;
+&lt;p&gt;看到许多第三方库都有一个&lt;code&gt;.d.ts&lt;/code&gt;文件，当我们使用这些第三方库时，在方法上安装&lt;code&gt;ctrl+鼠标左键&lt;/code&gt;时就会跳转到对应&lt;code&gt;.d.ts&lt;/code&gt;说明文档中&lt;/p&gt;
+&lt;p&gt;那么这个是咱们做的呢？难道是手动创建并编写的吗？不是吧？如果是手动创建的话，哪些大型项目那么多方法和文件模块，并且还是多人协作开发，不可能同步如此庞大的&lt;code&gt;.d.ts&lt;/code&gt;文件，那么这个是怎么做的呢？&lt;/p&gt;
+&lt;p&gt;这个是使用&lt;code&gt;TypeScript&lt;/code&gt;生成的，不是吧？那我用的不是&lt;code&gt;TypeScript&lt;/code&gt;写的库不就不能生成了？&lt;/p&gt;
+&lt;p&gt;非也非也，即使不是用&lt;code&gt;TypeScript&lt;/code&gt;写的项目也能生成&lt;code&gt;.d.ts&lt;/code&gt;文件&lt;/p&gt;
+&lt;p&gt;只要你写的时候在方法上添加注释即可，注释关键字必须遵循&lt;a href=&#34;https://jsdoc.app/&#34;&gt;JSDoc&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;JSDoc 中有很多关键字，这些关键字想必你多多少少会在其它第三方库的&lt;code&gt;.d.ts&lt;/code&gt;文件中见过，如: &lt;code&gt;@param&lt;/code&gt; &lt;code&gt;@returns&lt;/code&gt; &lt;code&gt;@author&lt;/code&gt;等，更多具体的请自行在&lt;a href=&#34;https://jsdoc.app/&#34;&gt;JSDoc&lt;/a&gt;中查看&lt;/p&gt;
+&lt;p&gt;说了那么多，那么到底如何生成&lt;code&gt;.d.ts&lt;/code&gt;文档呢？&lt;/p&gt;
+&lt;p&gt;举例我目前有一个&lt;code&gt;/src/main.js&lt;/code&gt;，其中代码如下&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * 代码来源于: https://github.com/Lete114/CardLink/blob/f4ab08b78625244d9515743e41c7e04f839e149f/src/main.js#L12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * Determine if it is a [&amp;#x27;https://&amp;#x27;, &amp;#x27;http://&amp;#x27;, &amp;#x27;//&amp;#x27;] protocol&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@param&lt;/span&gt; &amp;#123;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;&amp;#125; url Website url&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@returns&lt;/span&gt; &amp;#123;&lt;span class=&#34;type&#34;&gt;Boolean&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;isHttp&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;url&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;  &lt;span class=&#34;keyword&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;regexp&#34;&gt;/^(https?:)?\/\//g&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;test&lt;/span&gt;(url)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;只需一行命令即可，使用 npx 临时安装&lt;code&gt;typescript&lt;/code&gt;，并调用&lt;code&gt;typescript&lt;/code&gt;的命令生成&lt;code&gt;.d.ts&lt;/code&gt;文档&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;注意其中&lt;code&gt;-p&lt;/code&gt;是 npx 的命令，原名&lt;code&gt;--package&lt;/code&gt;，具体请看官网&lt;a href=&#34;https://docs.npmjs.com/cli/v8/commands/npx&#34;&gt;https://docs.npmjs.com/cli/v8/commands/npx&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;src/**/*.js&lt;/code&gt;: 对 src 目录下的所有 js 文件生成&lt;code&gt;.d.ts&lt;/code&gt;文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--declaration&lt;/code&gt;: 生成相应的&lt;code&gt;.d.ts&lt;/code&gt;文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--allowJs&lt;/code&gt;: 允许编译 javascript 文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--emitDeclarationOnly&lt;/code&gt;: 只输出 &lt;code&gt;.d.ts&lt;/code&gt; 文件，不输出 JavaScript 文件&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;--outDir&lt;/code&gt;: 输出到指定的目录&lt;/li&gt;
+&lt;/ul&gt;
+&lt;figure class=&#34;highlight bash&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;npx -p typescript tsc src/**.js --declaration --allowJs --emitDeclarationOnly --outDir types&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;p&gt;执行如上命令后就会先下载&lt;code&gt;typescript&lt;/code&gt;，然后执行 tsc 命令，构建生成&lt;code&gt;.d.ts&lt;/code&gt; 文件到&lt;code&gt;types/main.d.ts&lt;/code&gt;&lt;/p&gt;
+&lt;figure class=&#34;highlight ts&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;/**&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * 代码来源于: https://github.com/Lete114/CardLink/blob/f4ab08b78625244d9515743e41c7e04f839e149f/src/main.js#L12&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * Determine if it is a [&amp;#x27;https://&amp;#x27;, &amp;#x27;http://&amp;#x27;, &amp;#x27;//&amp;#x27;] protocol&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@param&lt;/span&gt; &amp;#123;&lt;span class=&#34;type&#34;&gt;String&lt;/span&gt;&amp;#125; url Website url&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; * &lt;span class=&#34;doctag&#34;&gt;@returns&lt;/span&gt; &amp;#123;&lt;span class=&#34;type&#34;&gt;Boolean&lt;/span&gt;&amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt; */&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;keyword&#34;&gt;export&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;default&lt;/span&gt; &lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; &lt;span class=&#34;title function_&#34;&gt;isHttp&lt;/span&gt;(&lt;span class=&#34;params&#34;&gt;url: &lt;span class=&#34;built_in&#34;&gt;string&lt;/span&gt;&lt;/span&gt;): &lt;span class=&#34;built_in&#34;&gt;boolean&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+        <category term="JavaScript" />
+        <category term="TypeScript" />
+        <updated>2022-06-06T15:52:50.000Z</updated>
+    </entry>
+</feed>

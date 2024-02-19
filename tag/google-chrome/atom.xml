@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.imlete.cn</id>
+    <title>Lete乐特 &#39;s Blog • Posts by &#34;google-chrome&#34; tag</title>
+    <link href="https://blog.imlete.cn" />
+    <updated>2021-03-03T14:40:02.000Z</updated>
+    <category term="CSS" />
+    <category term="记录" />
+    <category term="JavaScript" />
+    <category term="Git" />
+    <category term="教程" />
+    <category term="HTML" />
+    <category term="CDN" />
+    <category term="Github" />
+    <category term="Jsdeliver" />
+    <category term="SEO" />
+    <category term="Hexo" />
+    <category term="Yilia" />
+    <category term="Valine" />
+    <category term="Live2d" />
+    <category term="Config" />
+    <category term="LeanCloud" />
+    <category term="IDEA" />
+    <category term="Maven" />
+    <category term="Java" />
+    <category term="SpringBoot" />
+    <category term="Thymeleaf" />
+    <category term="java" />
+    <category term="源码" />
+    <category term="软件" />
+    <category term="MyBatis" />
+    <category term="SSM" />
+    <category term="Gzip" />
+    <category term="JQuery" />
+    <category term="Node" />
+    <category term="Cache" />
+    <category term="Vue" />
+    <category term="TypeScript" />
+    <category term="Vercel" />
+    <category term="HTTP" />
+    <category term="Typecho" />
+    <category term="Blog" />
+    <category term="Webpack" />
+    <category term="Windows" />
+    <category term="Linux" />
+    <category term="PhotoShop" />
+    <category term="抠图" />
+    <category term="VSCode" />
+    <category term="jsdelivr" />
+    <category term="C#" />
+    <category term="Google Chrome" />
+    <category term="谷歌插件" />
+    <category term="Google-Chrome" />
+    <entry>
+        <id>https://blog.imlete.cn/article/Chrome-SplitScreen.html</id>
+        <title>自己写一个谷歌浏览器分屏插件</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/Chrome-SplitScreen.html"/>
+        <content type="html">&lt;h1 id=&#34;前言&#34;&gt;&lt;a href=&#34;#前言&#34; class=&#34;headerlink&#34; title=&#34;前言&#34;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;再一些特殊情况下需要分屏浏览网站时，使用win10自带得&lt;code&gt;win+左方向键&lt;/code&gt;或者&lt;code&gt;win+右方向键&lt;/code&gt;分屏还是很不错的&lt;br&gt;这种方法的前提是得先把该标签页分离出来才能操作，如果要合并回同一个Chrome窗体，这个操作还是挺令人烦恼的&lt;/p&gt;
+&lt;p&gt;由于个人特殊要求，每天打开电脑必须打开浏览器，浏览器对我来说已经远比QQ、微信等应用主要了，再打开浏览器后免不了&lt;code&gt;打开10几20个网站&lt;/code&gt;&lt;br&gt;如果打开的网站过多，标签栏显示的内容就越少，很多情况下只能靠辨别网站图标来分清网站，这里我使用了&lt;code&gt;OneTab&lt;/code&gt;插件，它可以帮你管理打开的网站&lt;/p&gt;
+&lt;p&gt;对此我简单的打开几个页面演示一下，但这只是方便管理而已&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/1.png&#34; alt=&#34;OneTab Demo&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;动手写代码&#34;&gt;&lt;a href=&#34;#动手写代码&#34; class=&#34;headerlink&#34; title=&#34;动手写代码&#34;&gt;&lt;/a&gt;动手写代码&lt;/h2&gt;&lt;p&gt;如果阅读 / 浏览两个网站时，每次都需要手动点击标签页来回浏览，时间久了就会烦&lt;br&gt;身为程序员的我，就使用js的&lt;code&gt;document.write()&lt;/code&gt;方法加上html的&lt;code&gt;frameset&lt;/code&gt;将两个页面都加载到一个页面上就能达到分屏的效果&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// location.href 当前网址 可自定义&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;document&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;write&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;frameset cols=&amp;quot;50%,*&amp;quot;&amp;gt;&amp;lt;frame id=&amp;quot;left&amp;quot; src=&amp;#x27;&lt;/span&gt;+location.&lt;span class=&#34;property&#34;&gt;href&lt;/span&gt;+&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;gt;&amp;lt;frame id=&amp;quot;right&amp;quot; src=&amp;#x27;&lt;/span&gt;+location.&lt;span class=&#34;property&#34;&gt;href&lt;/span&gt;+&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;gt;&amp;lt;/frameset&amp;gt;&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&#34;提高效率&#34;&gt;&lt;a href=&#34;#提高效率&#34; class=&#34;headerlink&#34; title=&#34;提高效率&#34;&gt;&lt;/a&gt;提高效率&lt;/h2&gt;&lt;p&gt;这样有个弊端就是每次想分屏的时候都需要写这么长的代码&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;解决&lt;br&gt;新增收藏书签栏(自定义)，在网址那添加上方js代码，并在前面加上&lt;code&gt;javascript:&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// location.href 当前网址 可自定义&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;attr&#34;&gt;javascript&lt;/span&gt;:&lt;span class=&#34;variable language_&#34;&gt;document&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;write&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;frameset cols=&amp;quot;50%,*&amp;quot;&amp;gt;&amp;lt;frame id=&amp;quot;left&amp;quot; src=&amp;#x27;&lt;/span&gt;+location.&lt;span class=&#34;property&#34;&gt;href&lt;/span&gt;+&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;gt;&amp;lt;frame id=&amp;quot;right&amp;quot; src=&amp;#x27;&lt;/span&gt;+location.&lt;span class=&#34;property&#34;&gt;href&lt;/span&gt;+&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;gt;&amp;lt;/frameset&amp;gt;&amp;#x27;&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/2.png&#34; alt=&#34;SplitScreen 2&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;发现问题&#34;&gt;&lt;a href=&#34;#发现问题&#34; class=&#34;headerlink&#34; title=&#34;发现问题&#34;&gt;&lt;/a&gt;发现问题&lt;/h2&gt;&lt;p&gt;这样就能快速分屏网站了，这样也有一个弊端，就是无法更改&lt;code&gt;src&lt;/code&gt;的内容&lt;br&gt;就只能按F12打开Chrome的控制台(Console)输入&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// left对应frame标签的id 同样第二个frame标签也有id=&amp;quot;right&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 网址写要分屏的网址&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;variable language_&#34;&gt;document&lt;/span&gt;.&lt;span class=&#34;title function_&#34;&gt;getElementById&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;quot;left&amp;quot;&lt;/span&gt;).&lt;span class=&#34;property&#34;&gt;src&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;网址&amp;quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;但身为程序员，这么能止步于此呢？&lt;br&gt;(拍桌子就要写Chrome插件)之前有了解过Chrome插件，也修改过别人的插件&lt;a href=&#34;https://github.com/lete114/GetThemAll&#34;&gt;GetThemAll&lt;/a&gt;，于是就萌生了写Chrome这个想法&lt;/p&gt;
+&lt;p&gt;然后就诞生了&lt;code&gt;SplitScreen&lt;/code&gt;插件&lt;a href=&#34;https://github.com/lete114/SplitScreen&#34;&gt;SplitScreen&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h1&gt;&lt;p&gt;什么扯淡了这么久，现在才是正文(滑稽)&lt;/p&gt;
+&lt;h2 id=&#34;安装插件&#34;&gt;&lt;a href=&#34;#安装插件&#34; class=&#34;headerlink&#34; title=&#34;安装插件&#34;&gt;&lt;/a&gt;安装插件&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;下载插件&lt;br&gt;&lt;a href=&#34;https://github.com/lete114/SplitScreen&#34;&gt;https://github.com/lete114/SplitScreen&lt;/a&gt;&lt;br&gt;可以直接clone仓库到本地&lt;br&gt;或者到&lt;a href=&#34;https://github.com/lete114/SplitScreen/releases/&#34;&gt;https://github.com/lete114/SplitScreen/releases/&lt;/a&gt;下载源码&lt;br&gt;如果你下载的是&lt;code&gt;.crx&lt;/code&gt;的话安装到Chrome会提示&lt;code&gt;该扩展程序未列在 Chrome 网上应用店中，并可能是在您不知情的情况下添加的。&lt;/code&gt;&lt;br&gt;因为没有发布到Chrome 网上应用店中所有不能用，只能解压成文件夹让后导入&lt;/li&gt;
+&lt;li&gt;下载Source code (zip)&lt;br&gt;解压(解压位置随便你)，解压后如果没有SplitScreen文件夹的话自己新建，然后把插件放进去&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/3.png&#34; alt=&#34;SplitScreen 3&#34;&gt;&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/4.png&#34; alt=&#34;SplitScreen 4&#34;&gt;&lt;/li&gt;
+&lt;li&gt;导入插件&lt;br&gt;打开&lt;a href=&#34;chrome://extensions/&#34;&gt;chrome://extensions/&lt;/a&gt;&lt;br&gt;点击右上角的&lt;code&gt;开发者模式&lt;/code&gt;，然后点击&lt;code&gt;加载已解压的扩展程序&lt;/code&gt;，然后选中你解压插件的文件存放路径&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/5.png&#34; alt=&#34;SplitScreen 5&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;功能介绍&#34;&gt;&lt;a href=&#34;#功能介绍&#34; class=&#34;headerlink&#34; title=&#34;功能介绍&#34;&gt;&lt;/a&gt;功能介绍&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;留空啥也不填，当前标签页打开的网址分屏&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/6.png&#34; alt=&#34;SplitScreen 6&#34;&gt;&lt;/li&gt;
+&lt;li&gt;左窗体填写&lt;a href=&#34;https://mengd.js.org&#34;&gt;https://mengd.js.org&lt;/a&gt;&lt;br&gt;左窗体显示MengD(萌典)主题文档，右窗体显示当前标签页打开的网址&lt;br&gt;反之左窗体显示当前标签页打开的网址，右边显示MengD(萌典)主题文档&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/7.png&#34; alt=&#34;SplitScreen 7&#34;&gt;&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/8.png&#34; alt=&#34;SplitScreen 8&#34;&gt;&lt;/li&gt;
+&lt;li&gt;如果输入的网址不是HTTP协议的地址，这提示错误网址&lt;br&gt;&lt;img src=&#34;/img/Chrome-SplitScreen/9.png&#34; alt=&#34;SplitScreen 9&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果觉得还不错的话，可以给我一个Star✨哦~~&lt;br&gt;&lt;a href=&#34;https://github.com/lete114/SplitScreen&#34;&gt;https://github.com/lete114/SplitScreen&lt;/a&gt;&lt;/p&gt;
+</content>
+        <category term="谷歌插件" />
+        <category term="Google-Chrome" />
+        <updated>2021-03-03T14:40:02.000Z</updated>
+    </entry>
+</feed>

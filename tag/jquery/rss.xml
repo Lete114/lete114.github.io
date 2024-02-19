@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>Lete乐特 &#39;s Blog • Posts by &#34;jquery&#34; tag</title>
+        <link>https://blog.imlete.cn</link>
+        <description>我相信我可以，但我一直在路上，所以我有无限的可能！！</description>
+        <language>zh-CN</language>
+        <pubDate>Fri, 25 Dec 2020 22:06:45 +0000</pubDate>
+        <lastBuildDate>Fri, 25 Dec 2020 22:06:45 +0000</lastBuildDate>
+        <category>CSS</category>
+        <category>记录</category>
+        <category>JavaScript</category>
+        <category>Git</category>
+        <category>教程</category>
+        <category>HTML</category>
+        <category>CDN</category>
+        <category>Github</category>
+        <category>Jsdeliver</category>
+        <category>SEO</category>
+        <category>Hexo</category>
+        <category>Yilia</category>
+        <category>Valine</category>
+        <category>Live2d</category>
+        <category>Config</category>
+        <category>LeanCloud</category>
+        <category>IDEA</category>
+        <category>Maven</category>
+        <category>Java</category>
+        <category>SpringBoot</category>
+        <category>Thymeleaf</category>
+        <category>java</category>
+        <category>源码</category>
+        <category>软件</category>
+        <category>MyBatis</category>
+        <category>SSM</category>
+        <category>Gzip</category>
+        <category>JQuery</category>
+        <category>Node</category>
+        <category>Cache</category>
+        <category>Vue</category>
+        <category>TypeScript</category>
+        <category>Vercel</category>
+        <category>HTTP</category>
+        <category>Typecho</category>
+        <category>Blog</category>
+        <category>Webpack</category>
+        <category>Windows</category>
+        <category>Linux</category>
+        <category>PhotoShop</category>
+        <category>抠图</category>
+        <category>VSCode</category>
+        <category>jsdelivr</category>
+        <category>C#</category>
+        <category>Google Chrome</category>
+        <category>谷歌插件</category>
+        <category>Google-Chrome</category>
+        <item>
+            <guid isPermalink="true">https://blog.imlete.cn/article/a337c870.html</guid>
+            <title>JQuery 的click失效，无法触发</title>
+            <link>https://blog.imlete.cn/article/a337c870.html</link>
+            <category>记录</category>
+            <category>JavaScript</category>
+            <category>JQuery</category>
+            <pubDate>Fri, 25 Dec 2020 22:06:45 +0000</pubDate>
+            <description><![CDATA[ &lt;p&gt;前不久用js写评论的时候遇到的问题，当时就觉得很奇怪，自己写的代码没有报错，编译正常&lt;br&gt;浏览器控制台调试，点击了Click也不反应，上网查询了很久也不见得有人提起过(可能是我不会搜索吧)，多次搜索引擎查阅后无果，我只好求助同校学前端的朋友&lt;/p&gt;
+&lt;h2 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;h3 id=&#34;问题&#34;&gt;&lt;a href=&#34;#问题&#34; class=&#34;headerlink&#34; title=&#34;问题&#34;&gt;&lt;/a&gt;问题&lt;/h3&gt;&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;13&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;button&amp;gt;点击追加div标签&amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-xml&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;zhuijia&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 点击button后再zhuijia里面追加标签&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(&lt;span class=&#34;string&#34;&gt;&amp;#x27;button&amp;#x27;&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;click&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; (&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    $(&lt;span class=&#34;string&#34;&gt;&amp;#x27;#zhuijia&amp;#x27;&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;prepend&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;div id=&amp;quot;test&amp;quot;&amp;gt;JQuery追加的标签&amp;lt;/div&amp;gt;&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 点击js追加的标签不反应&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(&lt;span class=&#34;string&#34;&gt;&amp;#x27;#test&amp;#x27;&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;click&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; (&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;title function_&#34;&gt;alert&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h3 id=&#34;解决&#34;&gt;&lt;a href=&#34;#解决&#34; class=&#34;headerlink&#34; title=&#34;解决&#34;&gt;&lt;/a&gt;解决&lt;/h3&gt;&lt;p&gt;on() 和 click() 的区别:&lt;br&gt;二者在绑定静态控件时没有区别，但是如果面对动态产生的控件，只有 on() 能成功的绑定到动态控件中。&lt;/p&gt;
+&lt;figure class=&#34;highlight js&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;12&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&amp;lt;button&amp;gt;点击追加div标签&amp;lt;/button&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;language-xml&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;id&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;zhuijia&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;div&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(&lt;span class=&#34;string&#34;&gt;&amp;#x27;button&amp;#x27;&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;click&lt;/span&gt;(&lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; (&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    $(&lt;span class=&#34;string&#34;&gt;&amp;#x27;#zhuijia&amp;#x27;&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;prepend&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;&amp;lt;div id=&amp;quot;test&amp;quot;&amp;gt;JQuery追加的标签&amp;lt;/div&amp;gt;&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;comment&#34;&gt;// 使用这种方法即可成功触发click&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;$(&lt;span class=&#34;variable language_&#34;&gt;document&lt;/span&gt;).&lt;span class=&#34;title function_&#34;&gt;on&lt;/span&gt;(&lt;span class=&#34;string&#34;&gt;&amp;#x27;click&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;string&#34;&gt;&amp;#x27;#test&amp;#x27;&lt;/span&gt;, &lt;span class=&#34;keyword&#34;&gt;function&lt;/span&gt; (&lt;span class=&#34;params&#34;&gt;&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;    &lt;span class=&#34;title function_&#34;&gt;alert&lt;/span&gt;(&lt;span class=&#34;number&#34;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&amp;#125;)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+ ]]></description>
+        </item>
+    </channel>
+</rss>

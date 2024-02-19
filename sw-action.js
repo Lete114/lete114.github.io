@@ -1,0 +1,1 @@
+navigator.serviceWorker&&navigator.serviceWorker.register("/sw.js?v=c53950a227");

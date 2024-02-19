@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://blog.imlete.cn</id>
+    <title>Lete乐特 &#39;s Blog • Posts by &#34;html&#34; tag</title>
+    <link href="https://blog.imlete.cn" />
+    <updated>2022-05-12T11:51:45.000Z</updated>
+    <category term="CSS" />
+    <category term="记录" />
+    <category term="JavaScript" />
+    <category term="Git" />
+    <category term="教程" />
+    <category term="HTML" />
+    <category term="CDN" />
+    <category term="Github" />
+    <category term="Jsdeliver" />
+    <category term="SEO" />
+    <category term="Hexo" />
+    <category term="Yilia" />
+    <category term="Valine" />
+    <category term="Live2d" />
+    <category term="Config" />
+    <category term="LeanCloud" />
+    <category term="IDEA" />
+    <category term="Maven" />
+    <category term="Java" />
+    <category term="SpringBoot" />
+    <category term="Thymeleaf" />
+    <category term="java" />
+    <category term="源码" />
+    <category term="软件" />
+    <category term="MyBatis" />
+    <category term="SSM" />
+    <category term="Gzip" />
+    <category term="JQuery" />
+    <category term="Node" />
+    <category term="Cache" />
+    <category term="Vue" />
+    <category term="TypeScript" />
+    <category term="Vercel" />
+    <category term="HTTP" />
+    <category term="Typecho" />
+    <category term="Blog" />
+    <category term="Webpack" />
+    <category term="Windows" />
+    <category term="Linux" />
+    <category term="PhotoShop" />
+    <category term="抠图" />
+    <category term="VSCode" />
+    <category term="jsdelivr" />
+    <category term="C#" />
+    <category term="Google Chrome" />
+    <category term="谷歌插件" />
+    <category term="Google-Chrome" />
+    <entry>
+        <id>https://blog.imlete.cn/article/Static-resource-cache-control.html</id>
+        <title>前端优化之静态资源缓存控制</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/Static-resource-cache-control.html"/>
+        <content type="html">&lt;blockquote&gt;
+&lt;p&gt;本文转自&lt;a href=&#34;https://www.zhihu.com/question/20790576/answer/32602154&#34;&gt;@张云龙&lt;/a&gt;，于 2014 年 10 月在知乎上的一个问题回答，博主觉得这位大佬写的很好，也很详细，于是就把内容搬到了自己的博客上，便于以后自己查阅&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;太长不想看&#34;&gt;&lt;a href=&#34;#太长不想看&#34; class=&#34;headerlink&#34; title=&#34;太长不想看&#34;&gt;&lt;/a&gt;太长不想看&lt;/h2&gt;&lt;p&gt;使用强制缓存如何，如何让用户能够及时使用最新修改后的静态资源？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;修改资源文件名&lt;code&gt;index-v1.css&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;修改资源文件名，并且对文件内容生成 hash 值(内容改变，则 hash 改变反之不改变)(&lt;code&gt;index.v1tg6l.css&lt;/code&gt;)&lt;/li&gt;
+&lt;li&gt;为资源添加请求参数(该参数没有任何作用，只是为了修改 url 地址)与第二条一样生成 hash(&lt;code&gt;index.css?v=qb6l0p&lt;/code&gt;)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;blockquote&gt;
+&lt;p&gt;总结: 只要修改了资源请求的 url 地址，那么就会获取最新修改的静态资源，从而主动弃用旧静态资源&lt;br&gt;很多大网站都会使用这种方式，例如 baidu，taobao&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;什么是-HTTP-缓存&#34;&gt;&lt;a href=&#34;#什么是-HTTP-缓存&#34; class=&#34;headerlink&#34; title=&#34;什么是 HTTP 缓存&#34;&gt;&lt;/a&gt;什么是 HTTP 缓存&lt;/h2&gt;&lt;p&gt;HTTP 缓存分为两种(本文不会深究响应头的众多参数)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;强制缓存: (状态码始终 200)在规定时间内，不用向服务器发送请求，直接使用本地缓存(超过规定时间后才会重新向服务器发送请求获取资源)&lt;/li&gt;
+&lt;li&gt;协商缓存: (状态码过期 200，未过期 304)每次都会向服务器确认，这个本地资源有没有过期，过期: 服务器返回新资源。未过期: 让浏览器使用本地缓存&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;正文&#34;&gt;&lt;a href=&#34;#正文&#34; class=&#34;headerlink&#34; title=&#34;正文&#34;&gt;&lt;/a&gt;正文&lt;/h2&gt;&lt;p&gt;使用强制缓存如何，如何让用户能够及时使用最新修改后的静态资源？&lt;/p&gt;
+&lt;p&gt;这是一个普通网站的结构&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/1.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;访问这个网站，可以看到网络请求状态，响应状态 200，这是在正常不过的事了&lt;br&gt;那就看看&lt;code&gt;a.css&lt;/code&gt;的请求吧，如果每次用户访问页面都要加载，是不是很影响性能，很浪费带宽啊&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/2.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;我们希望最好这样,利用 304，让浏览器使用本地缓存。但，这样就够了吗？不成！&lt;strong&gt;304 叫协商缓存&lt;/strong&gt;，这玩意儿还是需要向浏览器发送一个请求，问问服务器这个资源有没有更新&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;更新: 返回新资源&lt;br&gt;没更新: 告诉浏览器使用本地缓存&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&#34;/img/Static-resource-cache-control/3.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;使用&lt;strong&gt;强制缓存（cache-control/expires）&lt;/strong&gt;让浏览器不要向服务器发送请求了&lt;br&gt;所以必须彻底灭掉这个请求，变成这样&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/4.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;那问题来了：这都不让浏览器发资源请求了，这缓存咋更新？&lt;br&gt;可以通过更新页面中引用的资源路径，让浏览器主动放弃缓存，加载新资源&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/5.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;下次上线资源的时候，把链接地址改成新的版本，这就能更新资源了&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/6.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;页面引用了 3 个 css，而某次上线只改了其中的 a.css，如果所有链接都更新版本(当然你如果只改 a 的链接地址就可以了，不过我们还是要继续讨论后续问题)，就会导致 b.css，c.css 的缓存也失效，那岂不是又有浪费了？！&lt;br&gt;要解决这种问题，必须让 url 的修改与文件内容关联，也就是说，只有文件内容变化，才会导致相应 url 的变更，从而实现文件级别的精确缓存控制。&lt;/p&gt;
+&lt;p&gt;可以使用&lt;strong&gt;数据摘要算法&lt;/strong&gt;，摘要信息与文件内容一一对应，就有了一种可以精确到单个文件粒度的缓存控制依据了&lt;/p&gt;
+&lt;p&gt;这回再有文件修改，就只更新那个文件对应的 url 了，想到这里貌似很完美了&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/7.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;现代互联网企业，为了进一步提升网站性能，会把静态资源和动态网页分集群部署，静态资源会被部署到 CDN 节点上，网页中引用的资源也会变成对应的部署路径&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/8.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;好了，当我要更新静态资源的时候，同时也会更新 html 中的引用吧，就好像这样&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/9.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;但是这会产生一个问题，如何保证页面与资源保持一致呢？&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;先部署页面，再部署资源&lt;ul&gt;
+&lt;li&gt;在二者部署的时间间隔内，如果有用户访问页面，就会在新的页面结构中加载旧的资源，并且把这个旧版本的资源当做新版本缓存起来，其结果就是：用户访问到了一个样式错乱的页面，除非手动刷新，否则在资源缓存过期之前，页面会一直执行错误。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;先部署资源，再部署页面&lt;ul&gt;
+&lt;li&gt;在部署时间间隔之内，有旧版本资源本地缓存的用户访问网站，由于请求的页面是旧版本的，资源引用没有改变，浏览器将直接使用本地缓存，这种情况下页面展现正常；但没有本地缓存或者缓存过期的用户访问网站，就会出现旧版本页面加载新版本资源的情况，导致页面执行错误，但当页面完成部署，这部分用户再次访问页面又会恢复正常了。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;简而言之: 先部署谁都不成！都会导致部署过程中发生页面错乱的问题。&lt;br&gt;所以，访问量不大的项目，可以让研发同学苦逼一把，等到半夜偷偷上线，先上静态资源，再部署页面，看起来问题少一些。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;但是如果你现在正在维护一个用户访问量比较大的网站，改怎么办，你打算不解决了吗？&lt;/p&gt;
+&lt;p&gt;可以采用&lt;strong&gt;非覆盖式发布&lt;/strong&gt;，前面我们说了那么多都是&lt;strong&gt;覆盖式发布&lt;/strong&gt;&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/10.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;全套做下来，就是相对比较完整的静态资源缓存控制方案了，而且，还要注意的是，静态资源的缓存控制要求在前端所有静态资源加载的位置都要做这样的处理。是的，所有！什么 js、css 自不必说，还要包括 js、css 文件中引用的资源路径，由于涉及到摘要信息，引用资源的摘要信息也会引起引用文件本身的内容改变，从而形成级联的摘要变化，大概就是如下图&lt;br&gt;&lt;img src=&#34;/img/Static-resource-cache-control/11.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+</content>
+        <category term="CSS" />
+        <category term="JavaScript" />
+        <category term="HTML" />
+        <category term="Cache" />
+        <updated>2022-05-12T11:51:45.000Z</updated>
+    </entry>
+    <entry>
+        <id>https://blog.imlete.cn/article/HTML-progress-meter.html</id>
+        <title>HTML标签 progress or meter 进度条</title>
+        <link rel="alternate" href="https://blog.imlete.cn/article/HTML-progress-meter.html"/>
+        <content type="html">&lt;p&gt;有些有些情况下，我们在页面需要用到进度条&lt;/p&gt;
+&lt;p&gt;如果手写的化还需要判断宽度、百分比等问题&lt;/p&gt;
+&lt;p&gt;在html中，&lt;code&gt;progress&lt;/code&gt;标签是html5中新增的标签，是定义运行中的任务进度/进程，通常和JavaScript一起使用来实现进度条。&lt;/p&gt;
+&lt;p&gt;注释：&lt;code&gt;&amp;lt;progress&amp;gt;&lt;/code&gt; 标签不适合用来表示度量衡（例如，磁盘空间使用情况或查询结果）。如需表示度量衡，请使用 &lt;code&gt;&amp;lt;meter&amp;gt;&lt;/code&gt; 标签代替。&lt;br&gt;(这不一样的吗？而且&lt;code&gt;progress&lt;/code&gt;可以自定义最大值)&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;90%：&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;value&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;90&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;max&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;100&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;内容&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;50%：&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;value&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;50&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;max&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;100&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;30%：&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;value&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;30&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;max&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;100&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;150%：&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;value&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;150&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;max&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;200&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;progress&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;效果如下：&lt;br&gt;90%：&lt;progress value=&#34;90&#34; max=&#34;100&#34;&gt;内容&lt;/progress&gt;&lt;br&gt;50%：&lt;progress value=&#34;50&#34; max=&#34;100&#34;&gt;&lt;/progress&gt;&lt;br&gt;30%：&lt;progress value=&#34;30&#34; max=&#34;100&#34;&gt;&lt;/progress&gt;&lt;br&gt;150%：&lt;progress value=&#34;150&#34; max=&#34;200&#34;&gt;&lt;/progress&gt;&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;max&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;规定任务一共需要多少工作&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;value&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;规定已经完成多少任务&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;p&gt;关于&lt;code&gt;meter&lt;/code&gt;&lt;br&gt;注释：&lt;code&gt;&amp;lt;meter&amp;gt;&lt;/code&gt; 标签不应用于指示进度（在进度条中）。如果标记进度条，请使用 &lt;code&gt;&amp;lt;progress&amp;gt;&lt;/code&gt; 标签&lt;/p&gt;
+&lt;figure class=&#34;highlight html&#34;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&#34;gutter&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&#34;code&#34;&gt;&lt;pre&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;显示度量值：&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;p&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;meter&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;value&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;3&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;min&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;max&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;10&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;3/10&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;meter&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;br&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;tag&#34;&gt;&amp;lt;&lt;span class=&#34;name&#34;&gt;meter&lt;/span&gt; &lt;span class=&#34;attr&#34;&gt;value&lt;/span&gt;=&lt;span class=&#34;string&#34;&gt;&amp;quot;.6&amp;quot;&lt;/span&gt;&amp;gt;&lt;/span&gt;60%&lt;span class=&#34;tag&#34;&gt;&amp;lt;/&lt;span class=&#34;name&#34;&gt;meter&lt;/span&gt;&amp;gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;显示度量值：&lt;/p&gt;
+0.3%:&lt;meter value=&#34;3&#34; min=&#34;0&#34; max=&#34;10&#34;&gt;3/10&lt;/meter&gt;&lt;br&gt;
+0.6%:&lt;meter value=&#34;.6&#34;&gt;60%&lt;/meter&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;属性&lt;/th&gt;
+&lt;th&gt;值&lt;/th&gt;
+&lt;th&gt;描述&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;&lt;tr&gt;
+&lt;td&gt;form&lt;/td&gt;
+&lt;td&gt;form_id&lt;/td&gt;
+&lt;td&gt;规定 &lt;code&gt;&amp;lt;meter&amp;gt;&lt;/code&gt; 元素所属的一个或多个表单&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;high&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;规定被视作高的值的范围&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;low&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;规定被视作低的值的范围&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;max&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;规定范围的最大值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;min&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;规定范围的最小值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;optimum&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;规定度量的优化值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;value&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;[必需]规定度量的当前值&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+</content>
+        <category term="记录" />
+        <category term="HTML" />
+        <updated>2021-05-10T12:09:26.000Z</updated>
+    </entry>
+</feed>
